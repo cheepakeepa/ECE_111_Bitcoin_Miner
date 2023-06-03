@@ -7,8 +7,10 @@ module bitcoin_hash (input logic        clk, reset_n, start,
 
 parameter num_nonces = 16;
 
-logic [ 4:0] state;
+//logic [ 4:0] state;
 logic [31:0] hout[num_nonces];
+parameter int SHA_256_constants[7:0] = {32'6a09e667,32'bb67ae85,32'3c6ef372,32'a54ff53a,32'510e527f,32'9b05688c,
+32'1f83d9ab,32'5be0cd19};
 
 parameter int k[64] = '{
     32'h428a2f98,32'h71374491,32'hb5c0fbcf,32'he9b5dba5,32'h3956c25b,32'h59f111f1,32'h923f82a4,32'hab1c5ed5,
@@ -23,9 +25,77 @@ parameter int k[64] = '{
 
 // Student to add rest of the code here
 
+logic [31:0] input_message [19:0]; //original input message
+logic [31:0] H_B1 [7:0]; //hash of block 1
+logic [31:0] H_B2 [7:0]; //hash of block 2
+logic [31:0] sha_input1 [15:0];//input for the sha_instance
+logic [31:0] sha_input2 [7:0];//input for the sha_instance
+logic [31:0] sha_output [15:0];//input for the sha_instance
 
+//logic [31:0] final_hash [num_nonces:0];
+enum logic[2:0] {
+	IDLE = 2b'000;
+	LOAD = 2b'001
+	PHASE_1 = 2'b010;
+	PHASE_2 = 2b'011;
+	PHASE_3 = 2b'100;
+	DONE = 2b'101;
+} state;
 
+//instantiate SHA
+int load_counter = 0;
 
+always_ff@(posedge clk, negedge reset_n)begin
+	if(!reset_n) begin //resets everything
+		done <= 1b'0;
+		wr_en <= 1b'0;
+		mem_write_data <=0;
+		load_counter <= 0;
+		for(int i = 0; i<num_nonces;i++)begin//reset through arrays
+			h_b1[i] <= 0;
+			h_b2[i] <= 0;
+			sha_input[i] <= 0;
+			sha_output[i] <= 0;
+			hout[i] <= 0;
+		end
+		state <= IDLE;
+	end
+	
+	case(state)begin
+	IDLE: begin
+		if(start) begin
+			state <= LOAD;
+		end
+	end
 
+	LOAD: begin
+		mem_addr <= message_addr;
+		if(load_counter >21) begin
+			state = PHASE_1;
+		end
+		else begin
+			input_message[load_counter] <= mem_read_data;
+			load_counter++;
+		end
+	end
+	
+	PHASE_1: begin
+		sha_input1 <= input_message[15:0];
+		sha_input2 <= SHA_256_constants;	
+	end
+	
 
+	DONE: begin
+		mem_we <= 1b'1;
+		mem_addr <= output_addr;
+		mem_write_data = final_hash;
+		done <= 1b'1;
+	end
+	
+	
+	default: begin
+		state <= IDLE;
+	end
+	end
+end
 endmodule
