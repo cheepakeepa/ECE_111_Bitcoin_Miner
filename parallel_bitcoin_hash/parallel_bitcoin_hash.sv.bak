@@ -154,7 +154,7 @@ always_ff@(posedge clk, negedge reset_n)begin
 			sha_read_data <= 0;
 			load_counter++;
 		end
-		if(done && nonce < num_nonces) begin
+		if(done && nonce < 16) begin
 			state <= PHASE_2;
 			internal_output_address += 8;
 			nonce++;

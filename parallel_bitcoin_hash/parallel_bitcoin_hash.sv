@@ -1,4 +1,4 @@
-module bitcoin_hash (input logic        clk, reset_n, start,
+module parellel_bitcoin_hash (input logic        clk, reset_n, start,
                      input logic [15:0] message_addr, output_addr,
                     output logic        done, mem_clk, mem_we,
                     output logic [15:0] mem_addr,
@@ -154,7 +154,7 @@ always_ff@(posedge clk, negedge reset_n)begin
 			sha_read_data <= 0;
 			load_counter++;
 		end
-		if(done && nonce < num_nonces) begin
+		if(done && nonce < 16) begin
 			state <= PHASE_2;
 			internal_output_address += 8;
 			nonce++;
