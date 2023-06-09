@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bitcoin_hash
-Fri Jun 09 01:40:20 2023
+Fri Jun 09 14:19:29 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Failed - Fri Jun 09 01:40:20 2023           ;
+; Analysis & Synthesis Status       ; Failed - Fri Jun 09 14:19:29 2023           ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
@@ -171,7 +171,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 09 01:40:15 2023
+    Info: Processing started: Fri Jun 09 14:19:24 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -181,61 +181,60 @@ Info (12021): Found 1 design units, including 1 entities, in source file bitcoin
     Info (12023): Found entity 1: bitcoin_hash File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file simplified_sha256.sv
     Info (12023): Found entity 1: simplified_sha256 File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 1
-Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(34): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 34
+Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(36): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 36
 Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at bitcoin_hash.sv(29): object "H_B1" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 29
-Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 60
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(18): object message used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 18
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(22): object j used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 22
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(23): object offset used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 23
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(26): object cur_addr used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 26
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(27): object cur_write_data used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 27
-Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(29): object "tstep" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 29
-Warning (10241): Verilog HDL Function Declaration warning at simplified_sha256.sv(51): function "determine_num_blocks" may return a Don't Care value because its output register may not be assigned a value in every possible path through the function File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 51
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(46): truncated value with size 16 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 46
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(47): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 47
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(131): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 131
-Warning (10242): Verilog HDL Function Declaration warning at simplified_sha256.sv(71): variable "t1" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 71
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(155): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 155
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(196): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 196
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(199): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 199
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(202): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 202
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(205): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 205
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(208): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 208
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(211): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 211
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(214): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 214
-Warning (10240): Verilog HDL Always Construct warning at simplified_sha256.sv(103): inferring latch(es) for variable "cur_we", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 103
-Warning (10030): Net "determine_num_blocks[7..0]" at simplified_sha256.sv(51) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 51
-Warning (10030): Net "sha256_op.t1" at simplified_sha256.sv(61) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 61
-Warning (10030): Net "j" at simplified_sha256.sv(22) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 22
-Warning (10030): Net "offset" at simplified_sha256.sv(23) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 23
-Warning (10030): Net "cur_addr" at simplified_sha256.sv(26) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 26
-Warning (10030): Net "cur_write_data" at simplified_sha256.sv(27) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 27
-Info (10041): Inferred latch for "cur_we" at simplified_sha256.sv(103) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 103
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[15]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10029): Constant driver at simplified_sha256.sv(109) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 109
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[14]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[13]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[12]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[11]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[10]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[9]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[8]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[7]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[6]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[5]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[4]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[3]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[2]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[1]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_addr[0]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
-Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[31]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
-Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[30]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
-Error (12152): Can't elaborate user hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 60
+Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 62
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(20): object message used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 20
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(24): object j used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 24
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(25): object offset used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 25
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(28): object cur_addr used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 28
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(29): object cur_write_data used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 29
+Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(31): object "tstep" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 31
+Warning (10241): Verilog HDL Function Declaration warning at simplified_sha256.sv(53): function "determine_num_blocks" may return a Don't Care value because its output register may not be assigned a value in every possible path through the function File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 53
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(48): truncated value with size 16 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(49): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 49
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(133): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 133
+Warning (10242): Verilog HDL Function Declaration warning at simplified_sha256.sv(73): variable "t1" may have a Don't Care value because it may not be assigned a value in every possible path through the statements preceding its use File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 73
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(157): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 157
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(198): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 198
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(201): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 201
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(204): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 204
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(207): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 207
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(210): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 210
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(213): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 213
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(216): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 216
+Warning (10240): Verilog HDL Always Construct warning at simplified_sha256.sv(105): inferring latch(es) for variable "cur_we", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 105
+Warning (10030): Net "determine_num_blocks[7..0]" at simplified_sha256.sv(53) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 53
+Warning (10030): Net "sha256_op.t1" at simplified_sha256.sv(63) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 63
+Warning (10030): Net "j" at simplified_sha256.sv(24) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 24
+Warning (10030): Net "offset" at simplified_sha256.sv(25) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 25
+Warning (10030): Net "cur_addr" at simplified_sha256.sv(28) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 28
+Warning (10030): Net "cur_write_data" at simplified_sha256.sv(29) has no driver or initial value, using a default initial value '0' File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 29
+Info (10041): Inferred latch for "cur_we" at simplified_sha256.sv(105) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 105
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[15]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10029): Constant driver at simplified_sha256.sv(111) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 111
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[14]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[13]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[12]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[11]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[10]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[9]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[8]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[7]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[6]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[5]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[4]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[3]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[2]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[1]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_addr[0]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
+Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[31]" at simplified_sha256.sv(84) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 84
+Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[30]" at simplified_sha256.sv(84) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 84
+Error (12152): Can't elaborate user hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 62
 Info (144001): Generated suppressed messages file C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/output_files/bitcoin_hash.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 20 errors, 29 warnings
-    Error: Peak virtual memory: 4786 megabytes
-    Error: Processing ended: Fri Jun 09 01:40:20 2023
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 20 errors, 28 warnings
+    Error: Peak virtual memory: 4790 megabytes
+    Error: Processing ended: Fri Jun 09 14:19:29 2023
     Error: Elapsed time: 00:00:05
     Error: Total CPU time (on all processors): 00:00:07
 

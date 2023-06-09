@@ -31,7 +31,7 @@ logic [31:0] sha_output [num_nonces/2-1:0][7:0];//input for the sha_instance
 int loop2;
 int row;
 int column;
-
+wire [31:0] sha_H_in [7:0]; //chooses which value to put into sha
 
 //logic [31:0] final_hash [num_nonces:0];
 enum logic[2:0] {
@@ -56,7 +56,7 @@ genvar i;
 generate for(i = 0; i<num_nonces/2;i++) begin:sha_gen_loop
 	simplified_sha256 sha_inst(
 	.clk(clk),
-	.reset(reset_n),
+	.reset_n(reset_n),
 	.start(sha_start),
 	.message_addr(sha_message_addr),
 	.output_addr(sha_output_addr),
@@ -65,7 +65,8 @@ generate for(i = 0; i<num_nonces/2;i++) begin:sha_gen_loop
 	.mem_we(sha_mem_we[i]),
 	.mem_addr(sha_mem_addr[i]),
 	.mem_write_data(sha_write_data[i]),
-	.mem_read_data(sha_read_data[i])
+	.mem_read_data(sha_read_data[i]),
+	.hin(sha_H_in)
 );
 end:sha_gen_loop
 endgenerate
@@ -102,6 +103,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		row<= 0;
 		column <= 0;
 		loop2 <= 0;
+		sha_H_in <= SHA_256_constants;
 		if(start) begin
 			state <= PHASE_1;
 		end
@@ -113,6 +115,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		mem_we <= 1'b0;
 		mem_write_data <=0;
 		sha_message_addr <= message_addr;
+		sha_H_in <= SHA_256_constants;
 		row<= 0;
 		column <= 0;
 		loop2 <= 0;
@@ -138,6 +141,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		sha_start <= 1'b1;
 		mem_we <= 1'b0;
 		mem_write_data <=0;
+		sha_H_in <= H_B1;
 		row<= 0;
 		column <= 0;
 		load_counter <= 16;
@@ -185,6 +189,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		mem_we <= 1'b0;
 		mem_write_data <=0;
 		row<= 0;
+		sha_H_in <= SHA_256_constants;
 		column <= 0;
 		mem_addr <= output_addr;
 		for(int j = 0; j < num_nonces/2; j++)begin:phase_3_loop
@@ -222,6 +227,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		done <= 1'b0;
 		mem_we <= 1'b1;
 		mem_write_data <= sha_output[row][column];
+		sha_H_in <= SHA_256_constants;
 		load_counter <= 0;	
 		if(column == 7) begin
 			row <= row+1;
@@ -245,6 +251,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		mem_we <= 1'b0;
 		mem_write_data <=0;
 		row<= 0;
+		sha_H_in <= SHA_256_constants;
 		column <= 0;
 		load_counter <= 0;
 		loop2 <=0;
@@ -255,6 +262,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 	default: begin
 		state <= IDLE;
 		mem_we <= 1'b0;
+		sha_H_in <= SHA_256_constants;
 		done <= 1'b0;
 		load_counter <= 0;
 	end

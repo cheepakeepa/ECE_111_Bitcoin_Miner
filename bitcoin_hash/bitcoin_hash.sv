@@ -11,7 +11,7 @@ parameter num_nonces = 16;
 logic [31:0] hout[num_nonces];
 parameter int SHA_256_constants[7:0] = '{32'h6a09e667,32'hbb67ae85,32'h3c6ef372,32'ha54ff53a,32'h510e527f,32'h9b05688c,
 32'h1f83d9ab,32'h5be0cd19};
-reg [15:0] internal_output_addr;
+logic [15:0] internal_output_addr;
 
 parameter int k[64] = '{
     32'h428a2f98,32'h71374491,32'hb5c0fbcf,32'he9b5dba5,32'h3956c25b,32'h59f111f1,32'h923f82a4,32'hab1c5ed5,
@@ -28,7 +28,7 @@ parameter int k[64] = '{
 
 logic [31:0] H_B1 [7:0]; //hash of block 1
 logic [31:0] H_B2 [7:0]; //hash of block 2
-
+wire [31:0] sha_H_in [7:0]; //chooses which value to put into sha
 
 
 //logic [31:0] final_hash [num_nonces:0];
@@ -47,7 +47,8 @@ logic [31:0] sha_write_data, sha_read_data;
 logic sha_start, sha_done, sha_mem_we;
 simplified_sha256 sha_inst(
 	.clk(clk),
-	.reset(reset_n),
+	.reset_n
+	(reset_n),
 	.start(sha_start),
 	.message_addr(sha_message_addr),
 	.output_addr(sha_output_addr),
@@ -56,7 +57,8 @@ simplified_sha256 sha_inst(
 	.mem_we(sha_mem_we),
 	.mem_addr(sha_mem_addr),
 	.mem_write_data(sha_write_data),
-	.mem_read_data(sha_read_data)
+	.mem_read_data(sha_read_data),
+	.hin(sha_H_in)
 );
 	
 	
@@ -71,6 +73,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		sha_start <= 1'b0;
 		sha_read_data <= 0;
 		internal_output_addr <= 0;
+		sha_H_in <= SHA_256_constants;
 		nonce <= 0;
 		for(int i = 0; i<8;i++)begin//reset through arrays
 			H_B1[i] <= 0;
@@ -92,6 +95,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		sha_output_addr <= 0;
 		mem_we <= 1'b0;
 		sha_message_addr <= 0;
+		sha_H_in <= SHA_256_constants;
 		if(start) begin
 			state <= PHASE_1;
 		end
@@ -103,6 +107,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 	PHASE_1: begin:first_phase
 		done <= 1'b0;
 		mem_write_data <=0;
+		sha_H_in <= SHA_256_constants;
 		sha_start <= 1'b1;
 		mem_we <= 1'b0;
 		nonce <= 0;
@@ -136,6 +141,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		state<=PHASE_2;
 		sha_start <= 1'b1;
 		done <= 1'b0;
+		sha_H_in <= H_B1;
 		mem_write_data <=0;
 		mem_we <= 1'b0;
 		sha_output_addr <= 0;
@@ -184,6 +190,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		sha_start <= 1'b1;
 		state <= PHASE_3;
 		done <= 1'b0;
+		sha_H_in <= SHA_256_constants;
 		sha_output_addr <= internal_output_addr;
 		internal_output_addr <= internal_output_addr;
 		sha_message_addr <= 0;
@@ -233,6 +240,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		sha_start <= 1'b0;
 		state<=DONE;
 		sha_output_addr <= 0;
+		sha_H_in <= SHA_256_constants;
 		sha_message_addr <= 0;
 		mem_we <= 1'b0;
 		mem_addr <= 16'd0;
@@ -249,6 +257,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 	default: begin
 		sha_start <= 1'b0;
 		sha_output_addr <= 0;
+		sha_H_in <= SHA_256_constants;
 		sha_message_addr <= 0;
 		mem_addr <= 16'd0;
 		sha_read_data <= 0;

@@ -4,7 +4,9 @@ module simplified_sha256 #(parameter integer NUM_OF_WORDS = 20)(
  output logic done, mem_clk, mem_we,
  output logic [15:0] mem_addr,
  output logic [31:0] mem_write_data,
- input logic [31:0] mem_read_data);
+ input logic [31:0] mem_read_data,
+ input logic [31:0] hin[7:0]
+ );
 
 // FSM state variables 
 enum logic [2:0] {IDLE, READ, BLOCK, COMPUTE, WRITE} state;

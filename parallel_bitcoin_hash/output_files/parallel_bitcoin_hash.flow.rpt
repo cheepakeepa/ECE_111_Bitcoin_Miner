@@ -1,5 +1,5 @@
 Flow report for parallel_bitcoin_hash
-Fri Jun 09 02:14:54 2023
+Fri Jun 09 14:30:44 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Flow Status                       ; Flow Failed - Fri Jun 09 02:14:54 2023      ;
+; Flow Status                       ; Flow Failed - Fri Jun 09 14:30:44 2023      ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; parallel_bitcoin_hash                       ;
 ; Top-level Entity Name             ; parallel_bitcoin_hash                       ;
@@ -71,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 06/09/2023 02:14:49   ;
+; Start date & time ; 06/09/2023 14:30:40   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; parallel_bitcoin_hash ;
 +-------------------+-----------------------+
@@ -82,7 +82,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 233497588701177.168630208926348        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 233497588701177.168634623921772        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -90,6 +90,8 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --                                ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
+; ENABLE_DRC_SETTINGS                 ; On                                     ; Off           ; --          ; --                                ;
+; FLOW_ENABLE_RTL_VIEWER              ; On                                     ; Off           ; --          ; --                                ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --                                ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top                               ;
@@ -100,6 +102,8 @@ https://fpgasoftware.intel.com/eula.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
 ; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                     ; Verilog_2001  ; --          ; --                                ;
 ; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                    ; --            ; --          ; --                                ;
+; VHDL_INPUT_VERSION                  ; VHDL_2008                              ; VHDL_1993     ; --          ; --                                ;
+; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                    ; --            ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -108,8 +112,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4865 MB             ; 00:00:08                           ;
-; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:08                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4812 MB             ; 00:00:07                           ;
+; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:07                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
