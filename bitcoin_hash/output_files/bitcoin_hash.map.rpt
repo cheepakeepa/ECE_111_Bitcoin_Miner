@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bitcoin_hash
-Thu Jun 08 21:43:52 2023
+Fri Jun 09 01:40:20 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Failed - Thu Jun 08 21:43:52 2023           ;
+; Analysis & Synthesis Status       ; Failed - Fri Jun 09 01:40:20 2023           ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; bitcoin_hash                                ;
 ; Top-level Entity Name             ; bitcoin_hash                                ;
@@ -154,8 +154,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 10          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -171,10 +171,10 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Jun 08 21:43:47 2023
+    Info: Processing started: Fri Jun 09 01:40:15 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bitcoin_hash -c bitcoin_hash
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20032): Parallel compilation is enabled and will use up to 8 processors
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file tb_bitcoin_hash.sv
     Info (12023): Found entity 1: tb_bitcoin_hash File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file bitcoin_hash.sv
@@ -183,454 +183,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file simplif
     Info (12023): Found entity 1: simplified_sha256 File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 1
 Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(34): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 34
 Info (12127): Elaborating entity "bitcoin_hash" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at bitcoin_hash.sv(30): object "H_B1" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 30
-Warning (10230): Verilog HDL assignment warning at bitcoin_hash.sv(178): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 178
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "load_counter", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "nonce", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "state", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "sha_output_addr", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "internal_output_addr", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "sha_message_addr", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "mem_addr", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Warning (10240): Verilog HDL Always Construct warning at bitcoin_hash.sv(68): inferring latch(es) for variable "sha_read_data", which holds its previous value in one or more paths through the always construct File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_read_data[31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "mem_addr[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_message_addr[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "internal_output_addr[31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "sha_output_addr[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "state.PHASE_3" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "state.DONE" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "state.PHASE_2" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "state.PHASE_1" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "state.IDLE" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[0][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[1][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[2][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[3][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[4][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[5][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[6][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "H_B2[7][31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "nonce[31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[0]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[1]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[2]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[3]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[4]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[5]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[6]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[7]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[8]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[9]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[10]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[11]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[12]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[13]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[14]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[15]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[16]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[17]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[18]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[19]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[20]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[21]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[22]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[23]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[24]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[25]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[26]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[27]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[28]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[29]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[30]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (10041): Inferred latch for "load_counter[31]" at bitcoin_hash.sv(68) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 68
-Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 64
+Warning (10036): Verilog HDL or VHDL warning at bitcoin_hash.sv(29): object "H_B1" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 29
+Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 60
 Warning (10858): Verilog HDL warning at simplified_sha256.sv(18): object message used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 18
 Warning (10858): Verilog HDL warning at simplified_sha256.sv(22): object j used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 22
 Warning (10858): Verilog HDL warning at simplified_sha256.sv(23): object offset used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 23
@@ -677,13 +231,13 @@ Error (10028): Can't resolve multiple constant drivers for net "mem_addr[1]" at 
 Error (10028): Can't resolve multiple constant drivers for net "mem_addr[0]" at simplified_sha256.sv(80) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 80
 Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[31]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
 Error (10028): Can't resolve multiple constant drivers for net "mem_write_data[30]" at simplified_sha256.sv(82) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 82
-Error (12152): Can't elaborate user hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 64
+Error (12152): Can't elaborate user hierarchy "simplified_sha256:sha_inst" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 60
 Info (144001): Generated suppressed messages file C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/output_files/bitcoin_hash.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 20 errors, 38 warnings
-    Error: Peak virtual memory: 4788 megabytes
-    Error: Processing ended: Thu Jun 08 21:43:52 2023
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 20 errors, 29 warnings
+    Error: Peak virtual memory: 4786 megabytes
+    Error: Processing ended: Fri Jun 09 01:40:20 2023
     Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:06
+    Error: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+

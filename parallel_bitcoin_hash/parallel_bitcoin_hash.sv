@@ -25,12 +25,9 @@ parameter int k[64] = '{
 
 // Student to add rest of the code here
 
-logic [31:0] input_message [19:0]; //original input message
 logic [31:0] H_B1 [7:0]; //hash of block 1
 logic [31:0] H_B2 [num_nonces/2:0][7:0]; //hash of block 2
-logic [31:0] sha_input1 [15:0];//input for the sha_instance
-logic [31:0] sha_input2 [7:0];//input for the sha_instance
-logic [31:0] sha_output [num_nonces-1:0][7:0];//input for the sha_instance
+logic [31:0] sha_output [num_nonces/2-1:0][7:0];//input for the sha_instance
 int loop2;
 int row;
 int column;
@@ -53,7 +50,7 @@ logic [15:0] sha_output_addr;
 logic [15:0] sha_mem_addr [num_nonces/2-1:0];
 logic [31:0] sha_write_data, sha_read_data [num_nonces/2-1:0];
 logic sha_start;
-logic sha_done[num_nonces/2-1:0];
+logic [num_nonces/2-1:0] sha_done;
 logic sha_mem_we[num_nonces/2-1:0];
 genvar i;
 generate for(i = 0; i<num_nonces/2;i++) begin:sha_gen_loop
@@ -86,15 +83,15 @@ always_ff@(posedge clk or negedge reset_n)begin
 		loop2 <= 0;
 		for(int i = 0; i<8;i++)begin//reset through arrays
 			H_B1[i] <= 0;
-			for(int j=0; j<num_nonces/2-1;j++) begin
-				H_B2[j][i] <= 0;
-			end
-			for(int j=0; j<num_nonces-1;j++) begin
-				sha_output[j][i] <= 0;
+			for(int j=0; j<num_nonces/2;j++) begin
+				H_B2[i][j] <= 0;
+				sha_output[i][j] <= 0;
 			end
 		end
 		state <= IDLE;
 	end
+	
+	else begin:case_statement
 	
 	case(state)
 	IDLE: begin
@@ -136,7 +133,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 	end
 	
 	
-	PHASE_2: begin
+	PHASE_2: begin:second_phase
 	done <= 1'b0;
 		sha_start <= 1'b1;
 		mem_we <= 1'b0;
@@ -171,22 +168,25 @@ always_ff@(posedge clk or negedge reset_n)begin
 			else if(sha_mem_we[j]) begin//save output
 				H_B2[j][sha_mem_addr[j]] <= sha_write_data[j];
 			end	
-			else if(sha_done) begin//move state
+			else if(is_sha_done(sha_done)) begin//move state
 				state <= PHASE_3;
 				load_counter <= 0;
 			end
+			else begin
+				state <= PHASE_2;
+			end
 		end:phase_2_loop
-	end
+	end:second_phase
 	
 	
-	PHASE_3: begin
+	PHASE_3: begin:third_phase
 		done <= 1'b0;
 		sha_start <= 1'b1;
 		mem_we <= 1'b0;
-		mem_we <= sha_mem_we[0];
 		mem_write_data <=0;
 		row<= 0;
 		column <= 0;
+		mem_addr <= output_addr;
 		for(int j = 0; j < num_nonces/2; j++)begin:phase_3_loop
 
 			sha_message_addr[j] <= 0;
@@ -207,36 +207,39 @@ always_ff@(posedge clk or negedge reset_n)begin
 				sha_read_data[j] <= 32'd256;//256 bit input
 			end
 			//done loading padding
-			else if(sha_done[j] && ~loop2) begin//repeat 2 and 3 for next nonces
-				state <= PHASE_2;
-				loop2 <= 1;
-			end
-			else if(sha_done[j]) begin
+			else if(is_sha_done(sha_done)) begin// go to output state
 				state <= OUTPUT;
+				if(loop2)mem_addr<= output_addr + 16'd64;
+				else mem_addr <= output_addr;
 			end
-			else if(sha_mem_we[j])begin
-				H_B2[j+8*loop2][sha_mem_addr[j]] <= sha_write_data[j];
+			else if(sha_mem_we[j])begin//save to output array
+				sha_output[j][sha_mem_addr[j]] <= sha_write_data[j];
 			end
 		end:phase_3_loop
-	end
+	end:third_phase
 	
 	OUTPUT: begin
 		done <= 1'b0;
 		mem_we <= 1'b1;
 		mem_write_data <= sha_output[row][column];
 		load_counter <= 0;	
-		loop2 <= 0;
 		if(column == 7) begin
 			row <= row+1;
 			column <= 0;
 		end
-		else if(row == num_nonces-1)begin
-			state <= DONE;
+		else if(row == num_nonces/2-1)begin
+			if(loop2)begin
+				state <= DONE;
+			end
+			else begin
+				state <= PHASE_2;
+				loop2 <= 1;
+			end	
 		end
 		else begin
 			column <=column+1;
 		end
-		
+		mem_addr <= mem_addr + 16'd1;
 	end
 	DONE: begin
 		mem_we <= 1'b0;
@@ -245,8 +248,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 		column <= 0;
 		load_counter <= 0;
 		loop2 <=0;
-		//mem_addr <= output_addr;
-		//mem_write_data <= final_hash;
 		done <= 1'b1;
 	end
 	
@@ -258,5 +259,17 @@ always_ff@(posedge clk or negedge reset_n)begin
 		load_counter <= 0;
 	end
 	endcase
+	end:case_statement
 end
+//function to determine when all of the sha instances are finished
+function logic is_sha_done(input logic [num_nonces/2-1:0] sha_done_func);
+	for(int c = 0; c<num_nonces/2;c++)begin
+		if(sha_done_func == 8'b1111_1111)begin
+			is_sha_done = 1'b1;
+		end
+		else begin
+			is_sha_done = 1'b0;
+		end
+	end
+endfunction
 endmodule
