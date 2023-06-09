@@ -64,7 +64,7 @@ begin
     // Student to add remaning code below
     // Refer to SHA256 discussion slides to get logic for this function
     ch = (e & f) ^ ((~e) & g);
-    //t1 = H + S1 + ch + k[t] + w;
+    t1 = H + S1 + ch + k[t] + w;
     S0 = rightrotate(a, 2) ^ rightrotate(a, 13) ^ rightrotate(a, 22);
     maj = (a & b) ^ (a & c) ^ (b & c);
     t2 = S0 + maj;

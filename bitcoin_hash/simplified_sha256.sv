@@ -28,6 +28,8 @@ logic [31:0] cur_write_data;
 logic [512:0] memory_block;
 logic [ 7:0] tstep;
 
+
+
 // SHA256 K constants
 parameter int k[0:63] = '{
    32'h428a2f98,32'h71374491,32'hb5c0fbcf,32'he9b5dba5,32'h3956c25b,32'h59f111f1,32'h923f82a4,32'hab1c5ed5,
@@ -61,11 +63,11 @@ begin
     S1 = rightrotate(e, 6) ^ rightrotate(e, 11) ^ rightrotate(e, 25);
     // Student to add remaning code below
     // Refer to SHA256 discussion slides to get logic for this function
-    ch = 
-    t1 = 
-    S0 = 
-    maj = 
-    t2 = 
+    ch = (e & f) ^ ((~e) & g);
+ //   t1 = H + S1 + ch + k[t] + w;
+    S0 = rightrotate(a, 2) ^ rightrotate(a, 13) ^ rightrotate(a, 22);
+    maj = (a & b) ^ (a & c) ^ (b & c);
+    t2 = S0 + maj;
     sha256_op = {t1 + t2, a, b, c, d + t1, e, f, g};
 end
 endfunction
@@ -122,8 +124,13 @@ begin
     BLOCK: begin
 	// Fetch message in 512-bit block size
 	// For each of 512-bit block initiate hash value computation
-       
-
+      
+					if (j < num_blocks) begin
+						if( i < 16) begin
+							w[i] <= message[i];
+							i <= i + 1;
+							
+						
 
 
    
@@ -132,7 +139,8 @@ begin
 
 
     
-
+				end
+				end
     end
 
     // For each block compute hash function
@@ -143,16 +151,34 @@ begin
 	// 64 processing rounds steps for 512-bit block 
         if (i <= 64) begin
 
-
-
-
-
-
-
-
-
-
-
+					{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[i], i);;
+					i <= i + 1;
+					state <= COMPUTE;
+				end
+				
+				else begin
+				
+				h0 <= h0 + a;
+				h1 <= h1 + b;
+				h2 <= h2 + c;
+				h3 <= h3 + d;
+				h4 <= h4 + e;
+				h5 <= h5 + f;
+				h6 <= h6 + g;
+				h7 <= h7 + h;
+				
+				a <= a + h0;
+				b <= b + h1;
+				c <= c + h2;
+				d <= d + h3;
+				e <= e + h4;
+				f <= f + h5;
+				g <= g + h6;
+				h <= h + h7;
+				
+				i <= 0;
+				state <= BLOCK;
+				
 
 
 
@@ -163,8 +189,34 @@ begin
     // h0 to h7 after compute stage has final computed hash value
     // write back these h0 to h7 to memory starting from output_addr
     WRITE: begin
-   
-
+			
+			mem_addr <= output_addr;
+			mem_write_data <= h0;
+			
+			mem_addr <= output_addr + 1;
+			mem_write_data <= h1;
+			
+			mem_addr <= output_addr + 2;
+			mem_write_data <= h2;
+			
+			mem_addr <= output_addr + 3;
+			mem_write_data <= h3;
+			
+			mem_addr <= output_addr + 4;
+			mem_write_data <= h4;
+			
+			mem_addr <= output_addr + 5;
+			mem_write_data <= h5;
+			
+			mem_addr <= output_addr + 6;
+			mem_write_data <= h6;
+			
+			mem_addr <= output_addr + 7;
+			mem_write_data <= h7;
+			
+			
+		
+	
 
     end
    endcase

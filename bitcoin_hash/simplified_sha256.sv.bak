@@ -64,7 +64,7 @@ begin
     // Student to add remaning code below
     // Refer to SHA256 discussion slides to get logic for this function
     ch = (e & f) ^ ((~e) & g);
-    //t1 = H + S1 + ch + k[t] + w;
+    t1 = H + S1 + ch + k[t] + w;
     S0 = rightrotate(a, 2) ^ rightrotate(a, 13) ^ rightrotate(a, 22);
     maj = (a & b) ^ (a & c) ^ (b & c);
     t2 = S0 + maj;
@@ -127,7 +127,7 @@ begin
       
 					if (j < num_blocks) begin
 						if( i < 16) begin
-							w[i] <= message[i];
+							w[i] <= message[i]
 							i <= i + 1;
 							
 						
@@ -139,8 +139,7 @@ begin
 
 
     
-				end
-				end
+
     end
 
     // For each block compute hash function
@@ -191,7 +190,7 @@ begin
     WRITE: begin
 			
 			mem_addr <= output_addr;
-			mem_write_data <= h0;
+			mem_write_data <= h0
 			
 			mem_addr <= output_addr + 1;
 			mem_write_data <= h1;

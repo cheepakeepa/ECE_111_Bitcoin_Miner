@@ -9,7 +9,7 @@ parameter num_nonces = 16;
 
 //logic [ 4:0] state;
 logic [31:0] hout[num_nonces];
-parameter int SHA_256_constants[7:0] = '{32'h6a09e667,32'hbb67ae85,32'h3c6ef372,32'ha54ff53a,32'h510e527f,32'h9b05688c,
+parameter int SHA_256_constants[7:0] = {32'h6a09e667,32'hbb67ae85,32'h3c6ef372,32'ha54ff53a,32'h510e527f,32'h9b05688c,
 32'h1f83d9ab,32'h5be0cd19};
 int internal_output_addr;
 
@@ -37,11 +37,12 @@ logic [31:0] sha_output [15:0];//input for the sha_instance
 //logic [31:0] final_hash [num_nonces:0];
 enum logic[2:0] {
 	IDLE = 3'b000,
-	PHASE_1 = 3'b001,
-	PHASE_2 = 3'b010,
-	PHASE_3 = 3'b110,
-	DONE = 3'b100
-} state ;
+	LOAD = 3'b001,
+	PHASE_1 = 3'b010,
+	PHASE_2 = 3'b011,
+	PHASE_3 = 3'b100,
+	DONE = 3'b101
+} state;
 
 //instantiate SHA
 int nonce;
@@ -71,110 +72,83 @@ always_ff@(posedge clk, negedge reset_n)begin
 		mem_we <= 1'b0;
 		mem_write_data <=0;
 		load_counter <= 0;
-		sha_start <= 1'b0;
-		nonce <= 0;
-		for(int i = 0; i<8;i++)begin//reset through arrays
+		nonce = 0;
+		for(int i = 0; i<num_nonces;i++)begin//reset through arrays
 			H_B1[i] <= 0;
 			H_B2[i] <= 0;
+			//sha_input[i] <= 0;
+			//sha_output[i] <= 0;
+			hout[i] <= 0;
 		end
 		state <= IDLE;
 	end
 	
 	case(state)
 	IDLE: begin
-		sha_start <= 1'b0;
-		nonce <= 0;
-		mem_write_data <=0;
-		done <= 1'b0;
-		mem_we <= 1'b0;
-		load_counter <= 0;
 		if(start) begin
-			state <= PHASE_1;
-		end
-		else begin
-			state<=IDLE;
+			nonce = 0;
+			state <= LOAD;
 		end
 	end
 	
 	PHASE_1: begin
-		done <= 1'b0;
-		mem_write_data <=0;
 		sha_start <= 1'b1;
-		mem_we <= 1'b0;
-		nonce <= 0;
-		sha_output_addr <= 0;
 		internal_output_addr <= output_addr;
 		sha_message_addr <= message_addr;
 		if(load_counter < 16)begin
 			mem_addr <= sha_mem_addr;
 			sha_read_data <= mem_read_data;
-			load_counter<=load_counter +1;
+			sha_output_addr <= 0;
+			load_counter++;
 		end
 		else if(sha_done) begin
 			state <= PHASE_2;
 		end
-		else if(sha_mem_we) begin
-			H_B1[sha_mem_addr] <= sha_write_data;
-		end
 		else begin
-			H_B1[sha_mem_addr] <=0;
-			mem_addr <= 0;
-			sha_read_data <= 0;
-			load_counter <= load_counter;
-			state<= PHASE_1;
+			if(sha_mem_we) begin
+				H_B1[sha_output_addr] <= sha_write_data;
+			end
 		end	
 	end
 	
 	
 	PHASE_2: begin
-	state<=PHASE_2;
 		sha_start <= 1'b1;
-		done <= 1'b0;
-		mem_write_data <=0;
-		mem_we <= 1'b0;
 		sha_output_addr <= 0;
-		nonce<= nonce;
 		if(load_counter < 19) begin //load the last three words into sha
-			mem_addr <= sha_mem_addr+16'd16;
+			mem_addr <= sha_mem_addr+16;
 			sha_read_data <= mem_read_data;
-			load_counter<=load_counter +1;
+			load_counter++;
 		end
 		else if(load_counter == 19) begin //load nonce into sha
 			sha_read_data <= nonce;
-			load_counter <=load_counter +1;
+			load_counter ++;
 		end
 		//load 12 padding words into sha
 		else if(load_counter == 20)begin
 			sha_read_data <= 32'h80000000;
-			load_counter<=load_counter +1;
+			load_counter++;
 		end
 		else if(load_counter <31) begin
 			sha_read_data <= 32'h00000000;
-			load_counter <=load_counter +1;
+			load_counter ++;
 		end
 		else if(load_counter <32) begin
 			sha_read_data <= 32'd640;//640 bit input
 		end
 		//done loading
 		else if(sha_mem_we) begin//save output
-			H_B2[sha_mem_addr] <= sha_write_data;
+			H_B2[sha_output_addr] <= sha_write_data;
 		end	
 		else if(sha_done) begin//move state
 			state <= PHASE_3;
-			load_counter <= 0;
-		end
-		else begin
-			H_B2[sha_mem_addr] <=0;
-			load_counter<=load_counter;
-			state <= PHASE_2;
-			sha_read_data <=0;
+			load_counter <= 1'b0;
 		end
 	end
 	
 	
 	PHASE_3: begin
 		sha_start <= 1'b1;
-		done <= 1'b0;
 		sha_output_addr <= internal_output_addr;
 		mem_we <= sha_mem_we;
 		mem_write_data <= sha_write_data;
@@ -182,61 +156,41 @@ always_ff@(posedge clk, negedge reset_n)begin
 		sha_message_addr <= 1'b0;
 		if(load_counter<8) begin//load previous hash
 			sha_read_data <= H_B2[sha_mem_addr];
-			load_counter<=load_counter +1;
+			load_counter++;
 		end
 		//load [adding bits
 		else if(load_counter < 9) begin
 			sha_read_data <= 32'h80000000;
-			load_counter<=load_counter +1;
+			load_counter++;
 		end
 		else if(load_counter <15)begin 
 			sha_read_data <= 32'h00000000;
-			load_counter<=load_counter +1;
+			load_counter++;
 		end		
 		else if(load_counter <16)begin 
 			sha_read_data <= 32'd256;//256 bit input
 		end
 		//done loading padding
-		else if(sha_done && nonce < num_nonces) begin//repeat 2 and 3 for next nonces
+		if(sha_done && nonce < num_nonces) begin//repeat 2 and 3 for next nonces
 			state <= PHASE_2;
 			internal_output_addr += 8;//increment output addr by 8 words for next nonce
-			nonce<=nonce+1;
+			nonce++;
 		end
 		else if(sha_done) begin
 			state <= DONE;
-		end
-		else begin
-			load_counter<=load_counter;
-			state <= PHASE_3;
-			sha_read_data <=0;
-			nonce <= nonce;
-			internal_output_addr <= internal_output_addr;
 		end
 	end
 	
 	
 	DONE: begin
-		sha_start <= 1'b0;
-		state<=DONE;
-		mem_we <= 1'b0;
-		mem_addr <= 16'd0;
-		mem_write_data <= 0;
-		mem_we <= 1'b0;
-		load_counter <= 0;
+		//mem_we <= 1'b1;
+		//mem_addr <= output_addr;
+		//mem_write_data <= final_hash;
 		done <= 1'b1;
-		nonce <= 0;
-		
-		mem_write_data <=0;
 	end
 	
 	
 	default: begin
-		sha_start <= 1'b0;
-		load_counter <= 0;
-		mem_we <= 1'b0;
-		nonce <= 0;
-		mem_write_data <=0;
-		done <= 1'b0;
 		state <= IDLE;
 	end
 	endcase
