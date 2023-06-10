@@ -152,6 +152,19 @@ begin
             state <= IDLE;
          end
     end
+	 
+	 READ: begin
+		//Read 640 bits message from testbench memory in chunks of 32bits words (i.e. read 20
+		//locations from memory by incrementing address offset)
+		if(y < NUM_OF_WORDS) begin
+			message[y] <= mem_read_data;
+			offset <= offset + 1;
+			y <= y + 1;
+		end
+		else begin
+			state <= BLOCK;
+		end
+	 end
 
     // SHA-256 FSM 
     // Get a BLOCK from the memory, COMPUTE Hash output using SHA256 function    
@@ -232,6 +245,22 @@ begin
     // move to WRITE stage
     COMPUTE: begin
 	// 64 processing rounds steps for 512-bit block 
+	
+	//64 steps, tstep starts at 0
+		//word expansion for wt
+		tstep <= 0;
+		if(tstep <= 63) begin
+			if(tstep < 16) begin
+				w[tstep] <= message[tstep];
+			end
+			else begin
+				s0 = rightrotate(w[tstep-15], 7) ^ rightrotate(w[tstep-15], 18) ^ (w[tstep-15] >> 3);
+				s1 = rightrotate(w[tstep-2], 16) ^ rightrotate(w[tstep-2], 19) ^ (w[tstep-2] >> 10);
+				w[tstep] = w[tstep-16] + s0 + w[tstep-7] + s1;
+			end
+			tstep <= tstep + 1;
+		end
+		
         if (i <= 64) begin
 
 					{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[i], i);
@@ -327,6 +356,6 @@ begin
   end
 endcase
 // Generate done when SHA256 hash computation has finished and moved to IDLE state
-//assign done = (state == IDLE);
+assign done = (state == IDLE);
 end
 endmodule
