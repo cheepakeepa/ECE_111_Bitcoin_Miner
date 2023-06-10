@@ -1,5 +1,5 @@
 Analysis & Synthesis report for simplified_sha256
-Fri Jun 09 18:51:13 2023
+Fri Jun 09 21:48:59 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,12 +13,15 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. State Machine - |simplified_sha256|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +48,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Successful - Fri Jun 09 18:51:13 2023       ;
+; Analysis & Synthesis Status       ; Successful - Fri Jun 09 21:48:58 2023       ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; simplified_sha256                           ;
 ; Top-level Entity Name             ; simplified_sha256                           ;
 ; Family                            ; Arria II GX                                 ;
 ; Logic utilization                 ; N/A                                         ;
-;     Combinational ALUTs           ; 1                                           ;
+;     Combinational ALUTs           ; 3,422                                       ;
 ;     Memory ALUTs                  ; 0                                           ;
-;     Dedicated logic registers     ; 17                                          ;
-; Total registers                   ; 17                                          ;
+;     Dedicated logic registers     ; 3,737                                       ;
+; Total registers                   ; 3737                                        ;
 ; Total pins                        ; 118                                         ;
 ; Total virtual pins                ; 0                                           ;
 ; Total block memory bits           ; 0                                           ;
@@ -164,10 +167,13 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -185,34 +191,34 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+-----------+
 ; Resource                                      ; Usage     ;
 +-----------------------------------------------+-----------+
-; Estimated ALUTs Used                          ; 1         ;
-;     -- Combinational ALUTs                    ; 1         ;
+; Estimated ALUTs Used                          ; 3422      ;
+;     -- Combinational ALUTs                    ; 3422      ;
 ;     -- Memory ALUTs                           ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
-; Dedicated logic registers                     ; 17        ;
+; Dedicated logic registers                     ; 3737      ;
 ;                                               ;           ;
-; Estimated ALUTs Unavailable                   ; 0         ;
-;     -- Due to unpartnered combinational logic ; 0         ;
+; Estimated ALUTs Unavailable                   ; 1566      ;
+;     -- Due to unpartnered combinational logic ; 1566      ;
 ;     -- Due to Memory ALUTs                    ; 0         ;
 ;                                               ;           ;
-; Total combinational functions                 ; 1         ;
+; Total combinational functions                 ; 3422      ;
 ; Combinational ALUT usage by number of inputs  ;           ;
-;     -- 7 input functions                      ; 0         ;
-;     -- 6 input functions                      ; 0         ;
-;     -- 5 input functions                      ; 0         ;
-;     -- 4 input functions                      ; 0         ;
-;     -- <=3 input functions                    ; 1         ;
+;     -- 7 input functions                      ; 40        ;
+;     -- 6 input functions                      ; 2196      ;
+;     -- 5 input functions                      ; 205       ;
+;     -- 4 input functions                      ; 141       ;
+;     -- <=3 input functions                    ; 840       ;
 ;                                               ;           ;
 ; Combinational ALUTs by mode                   ;           ;
-;     -- normal mode                            ; 1         ;
-;     -- extended LUT mode                      ; 0         ;
-;     -- arithmetic mode                        ; 0         ;
-;     -- shared arithmetic mode                 ; 0         ;
+;     -- normal mode                            ; 2878      ;
+;     -- extended LUT mode                      ; 40        ;
+;     -- arithmetic mode                        ; 376       ;
+;     -- shared arithmetic mode                 ; 128       ;
 ;                                               ;           ;
-; Estimated ALUT/register pairs used            ; 18        ;
+; Estimated ALUT/register pairs used            ; 7978      ;
 ;                                               ;           ;
-; Total registers                               ; 17        ;
-;     -- Dedicated logic registers              ; 17        ;
+; Total registers                               ; 3737      ;
+;     -- Dedicated logic registers              ; 3737      ;
 ;     -- I/O registers                          ; 0         ;
 ;     -- LUT_REGs                               ; 0         ;
 ;                                               ;           ;
@@ -222,9 +228,9 @@ https://fpgasoftware.intel.com/eula.
 ; DSP block 18-bit elements                     ; 0         ;
 ;                                               ;           ;
 ; Maximum fan-out node                          ; clk~input ;
-; Maximum fan-out                               ; 18        ;
-; Total fan-out                                 ; 189       ;
-; Average fan-out                               ; 0.74      ;
+; Maximum fan-out                               ; 3738      ;
+; Total fan-out                                 ; 34264     ;
+; Average fan-out                               ; 4.63      ;
 +-----------------------------------------------+-----------+
 
 
@@ -233,39 +239,34 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
-; |simplified_sha256         ; 1 (1)               ; 17 (17)                   ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |simplified_sha256  ; simplified_sha256 ; work         ;
+; |simplified_sha256         ; 3422 (3422)         ; 3737 (3737)               ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |simplified_sha256  ; simplified_sha256 ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; h0[0..31]                               ; Lost fanout                            ;
-; h1[0..31]                               ; Lost fanout                            ;
-; h2[0..31]                               ; Lost fanout                            ;
-; h3[0..31]                               ; Lost fanout                            ;
-; h4[0..31]                               ; Lost fanout                            ;
-; h5[0..31]                               ; Lost fanout                            ;
-; h6[0..31]                               ; Lost fanout                            ;
-; h7[0..31]                               ; Lost fanout                            ;
-; a[0..31]                                ; Lost fanout                            ;
-; b[0..31]                                ; Lost fanout                            ;
-; c[0..31]                                ; Lost fanout                            ;
-; d[0..31]                                ; Lost fanout                            ;
-; e[0..31]                                ; Lost fanout                            ;
-; f[0..31]                                ; Lost fanout                            ;
-; g[0..31]                                ; Lost fanout                            ;
-; h[0..31]                                ; Lost fanout                            ;
-; i[0..7]                                 ; Lost fanout                            ;
-; y[0..7]                                 ; Lost fanout                            ;
-; offset[0..15]                           ; Stuck at GND due to stuck port data_in ;
-; cur_write_data[1..31]                   ; Merged with cur_write_data[0]          ;
-; cur_write_data[0]                       ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 576 ;                                        ;
-+-----------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |simplified_sha256|state                                            ;
++---------------+---------------+-------------+------------+------------+-------------+
+; Name          ; state.COMPUTE ; state.BLOCK ; state.READ ; state.IDLE ; state.WRITE ;
++---------------+---------------+-------------+------------+------------+-------------+
+; state.IDLE    ; 0             ; 0           ; 0          ; 0          ; 0           ;
+; state.READ    ; 0             ; 0           ; 1          ; 1          ; 0           ;
+; state.BLOCK   ; 0             ; 1           ; 0          ; 1          ; 0           ;
+; state.COMPUTE ; 1             ; 0           ; 0          ; 1          ; 0           ;
+; state.WRITE   ; 0             ; 0           ; 0          ; 1          ; 1           ;
++---------------+---------------+-------------+------------+------------+-------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~9                               ; Lost fanout        ;
+; state~10                              ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -273,14 +274,52 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 1     ;
+; Total registers                              ; 3737  ;
+; Number of registers using Synchronous Clear  ; 349   ;
+; Number of registers using Synchronous Load   ; 2561  ;
+; Number of registers using Asynchronous Clear ; 6     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Clock Enable       ; 3731  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |simplified_sha256|message[31][6]     ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[30][20]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[29][19]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[28][12]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[27][16]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[26][5]     ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[25][31]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[24][13]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[23][21]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[22][10]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |simplified_sha256|message[21][14]    ;
+; 3:1                ; 32 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |simplified_sha256|message[20][15]    ;
+; 5:1                ; 8 bits    ; 24 ALUTs      ; 0 ALUTs              ; 24 ALUTs               ; Yes        ; |simplified_sha256|y[0]               ;
+; 5:1                ; 2 bits    ; 6 ALUTs       ; 2 ALUTs              ; 4 ALUTs                ; Yes        ; |simplified_sha256|cur_block[0]       ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 256 ALUTs            ; 512 ALUTs              ; Yes        ; |simplified_sha256|h0[8]              ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 0 ALUTs              ; 768 ALUTs              ; Yes        ; |simplified_sha256|e[26]              ;
+; 8:1                ; 4 bits    ; 20 ALUTs      ; 8 ALUTs              ; 12 ALUTs               ; Yes        ; |simplified_sha256|offset[0]          ;
+; 8:1                ; 8 bits    ; 40 ALUTs      ; 16 ALUTs             ; 24 ALUTs               ; Yes        ; |simplified_sha256|i[2]               ;
+; 9:1                ; 12 bits   ; 72 ALUTs      ; 0 ALUTs              ; 72 ALUTs               ; Yes        ; |simplified_sha256|offset[4]          ;
+; 9:1                ; 32 bits   ; 192 ALUTs     ; 192 ALUTs            ; 0 ALUTs                ; Yes        ; |simplified_sha256|cur_write_data[17] ;
+; 4:1                ; 128 bits  ; 256 ALUTs     ; 256 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux186             ;
+; 4:1                ; 512 bits  ; 1024 ALUTs    ; 1024 ALUTs           ; 0 ALUTs                ; No         ; |simplified_sha256|Mux184             ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |simplified_sha256|Mux186             ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |simplified_sha256|Mux49              ;
+; 4:1                ; 128 bits  ; 256 ALUTs     ; 256 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux72              ;
+; 8:1                ; 128 bits  ; 640 ALUTs     ; 640 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux72              ;
+; 33:1               ; 32 bits   ; 704 ALUTs     ; 704 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|w                  ;
+; 16:1               ; 32 bits   ; 320 ALUTs     ; 320 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux134             ;
+; 24:1               ; 32 bits   ; 512 ALUTs     ; 512 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux81              ;
+; 24:1               ; 32 bits   ; 512 ALUTs     ; 512 ALUTs            ; 0 ALUTs                ; No         ; |simplified_sha256|Mux123             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
 
 
 +-----------------------------------------------------------------------------------+
@@ -298,17 +337,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriaii_ff            ; 17                          ;
-;     CLR               ; 1                           ;
-;     ENA               ; 16                          ;
+; arriaii_ff            ; 3737                        ;
+;     CLR               ; 6                           ;
+;     ENA               ; 821                         ;
+;     ENA SCLR          ; 349                         ;
+;     ENA SLD           ; 2561                        ;
 ; boundary_port         ; 118                         ;
-; stratixiv_lcell_comb  ; 3                           ;
-;     normal            ; 3                           ;
-;         0 data inputs ; 2                           ;
-;         2 data inputs ; 1                           ;
+; stratixiv_lcell_comb  ; 3422                        ;
+;     arith             ; 376                         ;
+;         1 data inputs ; 40                          ;
+;         2 data inputs ; 336                         ;
+;     extend            ; 40                          ;
+;         7 data inputs ; 40                          ;
+;     normal            ; 2878                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 80                          ;
+;         3 data inputs ; 254                         ;
+;         4 data inputs ; 141                         ;
+;         5 data inputs ; 205                         ;
+;         6 data inputs ; 2196                        ;
+;     shared            ; 128                         ;
+;         3 data inputs ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.08                        ;
+; Max LUT depth         ; 10.50                       ;
+; Average LUT depth     ; 5.72                        ;
 +-----------------------+-----------------------------+
 
 
@@ -317,7 +370,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -327,7 +380,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 09 18:51:01 2023
+    Info: Processing started: Fri Jun 09 21:48:35 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simplified_sha256 -c simplified_sha256
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -335,65 +388,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file tb_simp
     Info (12023): Found entity 1: tb_simplified_sha256 File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file simplified_sha256.sv
     Info (12023): Found entity 1: simplified_sha256 File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 1
-Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(34): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 34
+Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(35): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 35
 Info (12127): Elaborating entity "simplified_sha256" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(22): object "j" assigned a value but never read File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 22
-Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(24): object "num_blocks" assigned a value but never read File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 24
-Warning (10858): Verilog HDL warning at simplified_sha256.sv(28): object memory_block used but never assigned File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 28
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(161): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 161
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(162): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 162
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(227): truncated value with size 33 to match size of target (32) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 227
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(261): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 261
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(268): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 268
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(305): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 305
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(311): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 311
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(317): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 317
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(323): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 323
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(329): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 329
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(334): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 334
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(339): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 339
-Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(344): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 344
-Critical Warning (10237): Verilog HDL warning at simplified_sha256.sv(360): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 360
-Critical Warning (10237): Verilog HDL warning at simplified_sha256.sv(361): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 361
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "done" is stuck at VCC File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 4
-    Warning (13410): Pin "mem_write_data[0]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[1]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[2]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[3]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[4]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[5]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[6]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[7]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[8]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[9]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[10]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[11]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[12]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[13]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[14]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[15]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[16]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[17]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[18]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[19]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[20]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[21]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[22]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[23]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[24]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[25]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[26]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[27]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[28]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[29]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[30]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
-    Warning (13410): Pin "mem_write_data[31]" is stuck at GND File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(166): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 166
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(167): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 167
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(221): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 221
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(228): truncated value with size 32 to match size of target (8) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 228
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(268): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 268
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(274): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 274
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(280): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 280
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(286): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 286
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(292): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 292
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(297): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 297
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(302): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 302
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(307): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 307
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 528 registers lost all their fanouts during netlist optimizations.
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/output_files/simplified_sha256.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 48 input pin(s) that do not drive logic
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "output_addr[0]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
     Warning (15610): No output dependent on input pin "output_addr[1]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
     Warning (15610): No output dependent on input pin "output_addr[2]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
@@ -410,46 +425,20 @@ Warning (21074): Design contains 48 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "output_addr[13]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
     Warning (15610): No output dependent on input pin "output_addr[14]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
     Warning (15610): No output dependent on input pin "output_addr[15]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
-    Warning (15610): No output dependent on input pin "mem_read_data[0]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[1]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[2]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[3]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[4]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[5]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[6]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[7]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[8]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[9]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[10]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[11]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[12]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[13]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[14]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[15]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[16]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[17]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[18]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[19]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[20]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[21]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[22]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[23]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[24]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[25]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[26]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[27]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[28]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[29]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[30]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-    Warning (15610): No output dependent on input pin "mem_read_data[31]" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
-Info (21057): Implemented 136 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6814 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 67 input pins
     Info (21059): Implemented 51 output pins
-    Info (21061): Implemented 18 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
-    Info: Peak virtual memory: 4844 megabytes
-    Info: Processing ended: Fri Jun 09 18:51:13 2023
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (21061): Implemented 6696 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 4879 megabytes
+    Info: Processing ended: Fri Jun 09 21:48:59 2023
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/output_files/simplified_sha256.map.smsg.
 
 

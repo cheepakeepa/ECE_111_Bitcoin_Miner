@@ -9,28 +9,53 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simulation/modelsim
-vtb_simplified_sha256
-DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-!s110 1686361992
+vsimplified_sha256
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+!s110 1686372695
 !i10b 1
-!s100 >bA>PhazaCDldAR=TDHF]3
-!s11b Dg1SIo80bB@j0V0VzS_@n1
-If1XB^OiS6haL^Jc4AF95D3
-VDg1SIo80bB@j0V0VzS_@n1
+!s100 9]4be6daO2>3V8ddMl1CO2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IJHLhNH?f0fG^B^IDjLmnV3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1685742392
-8C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
-FC:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
-!i122 0
-L0 1 283
-OV;L;2020.1;71
+w1686372458
+8C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv
+FC:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv
+!i122 1
+L0 1 325
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1686361992.000000
+!s108 1686372695.000000
+!s107 C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vtb_simplified_sha256
+R1
+!s110 1686372696
+!i10b 1
+!s100 P;YVeb@njPF2:4dKUMfe40
+R2
+I83i[9:NLJ5GN4YmjzXXRC2
+R3
+S1
+R0
+w1686364729
+8C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
+FC:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
+!i122 2
+L0 1 285
+R4
+r1
+!s85 0
+31
+!s108 1686372696.000000
 !s107 C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv|
 !s90 -reportprogress|300|-work|work|C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv|
 !i113 1
-o-work work
-tCvgOpt 0
+R5
+R6

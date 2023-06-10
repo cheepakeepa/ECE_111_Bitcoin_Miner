@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Jun 09 18:51:13 2023
+Analysis & Synthesis Status : Successful - Fri Jun 09 21:48:58 2023
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : simplified_sha256
 Top-level Entity Name : simplified_sha256
 Family : Arria II GX
 Logic utilization : N/A
-    Combinational ALUTs : 1
+    Combinational ALUTs : 3,422
     Memory ALUTs : 0
-    Dedicated logic registers : 17
-Total registers : 17
+    Dedicated logic registers : 3,737
+Total registers : 3737
 Total pins : 118
 Total virtual pins : 0
 Total block memory bits : 0

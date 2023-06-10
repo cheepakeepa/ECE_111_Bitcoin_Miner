@@ -260,6 +260,8 @@ begin
     $display("***************************\n");
 
     $stop;
+
+    //$finish();
 end
 
 // memory model
