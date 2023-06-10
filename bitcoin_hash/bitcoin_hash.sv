@@ -90,7 +90,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 		mem_addr <= 16'd0;
 		mem_write_data <=0;
 		sha_read_data <= 0;
-		done <= 1'b0;
 		internal_output_addr <= 0;
 		sha_output_addr <= 0;
 		mem_we <= 1'b0;
@@ -238,7 +237,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 	
 	DONE: begin
 		sha_start <= 1'b0;
-		state<=DONE;
 		sha_output_addr <= 0;
 		sha_H_in <= SHA_256_constants;
 		sha_message_addr <= 0;
@@ -251,6 +249,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		done <= 1'b1;
 		nonce <= 0;
 		mem_write_data <=0;
+		state<= DONE;
 	end
 	
 	

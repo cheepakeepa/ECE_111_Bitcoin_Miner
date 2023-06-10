@@ -97,7 +97,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 	case(state)
 	IDLE: begin
 		load_counter <= 0;
-		done <= 1'b0;
 		mem_we <= 1'b0;
 		mem_write_data <=0;
 		row<= 0;
@@ -137,7 +136,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 	
 	
 	PHASE_2: begin:second_phase
-	done <= 1'b0;
+		done <= 1'b0;
 		sha_start <= 1'b1;
 		mem_we <= 1'b0;
 		mem_write_data <=0;
@@ -256,6 +255,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		load_counter <= 0;
 		loop2 <=0;
 		done <= 1'b1;
+		state<= IDLE;
 	end
 	
 	
