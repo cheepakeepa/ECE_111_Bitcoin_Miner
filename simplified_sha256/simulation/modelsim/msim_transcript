@@ -12,101 +12,123 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/jacob/Documents/GitHub/ECE\ 111/ECE_111_Bitcoin_Miner/simplified_sha256 {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:32:17 on Jun 09,2023
+# Start time: 21:40:57 on Jun 09,2023
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256" C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
 # -- Compiling module simplified_sha256
 # 
 # Top level modules:
 # 	simplified_sha256
-# End time: 21:32:17 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:40:57 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:32:29 on Jun 09,2023
+# Start time: 21:41:06 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
 # -- Compiling module simplified_sha256
 # 
 # Top level modules:
 # 	simplified_sha256
-# End time: 21:32:29 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:41:06 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:32:29 on Jun 09,2023
+# Start time: 21:41:06 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
 # -- Compiling module tb_simplified_sha256
 # 
 # Top level modules:
 # 	tb_simplified_sha256
-# End time: 21:32:29 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:41:06 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim work.tb_simplified_sha256
 # vsim work.tb_simplified_sha256 
-# Start time: 21:32:37 on Jun 09,2023
+# Start time: 21:41:09 on Jun 09,2023
 # Loading sv_std.std
 # Loading work.tb_simplified_sha256
 # Loading work.simplified_sha256
 add wave sim:/tb_simplified_sha256/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: jacob  Hostname: JAPTOP  ProcessID: 23756
-#           Attempting to use alternate WLF file "./wlft49427z".
+#           Attempting to use alternate WLF file "./wlftcw65et".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft49427z
+#           Using alternate file: ./wlftcw65et
 add wave sim:/tb_simplified_sha256/simplified_sha256_inst/*
-run -all
-# --------
-# MESSAGE:
-# --------
-# 01234567
-# 02468ace
-# 048d159c
-# 091a2b38
-# 12345670
-# 2468ace0
-# 48d159c0
-# 91a2b380
-# 23456701
-# 468ace02
-# 8d159c04
-# 1a2b3809
-# 34567012
-# 68ace024
-# d159c048
-# a2b38091
-# 45670123
-# 8ace0246
-# 159c048d
-# 00000000
-# ***************************
-# 
-# ---------------------
-# COMPARE HASH RESULTS:
-# ---------------------
-# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
-# Correct H[1] = 42623974	Your H[1] = xxxxxxxx	ERROR
-# Correct H[2] = bf129635	Your H[2] = xxxxxxxx	ERROR
-# Correct H[3] = 937c5107	Your H[3] = xxxxxxxx	ERROR
-# Correct H[4] = f09b6e9e	Your H[4] = xxxxxxxx	ERROR
-# Correct H[5] = 708eb28b	Your H[5] = xxxxxxxx	ERROR
-# Correct H[6] = 0318d121	Your H[6] = xxxxxxxx	ERROR
-# Correct H[7] = 85eca921	Your H[7] = xxxxxxxx	ERROR
-# ***************************
-# 
-# ERROR!  8 hash results are wrong!
-# 
-# Total number of cycles:         145
-# 
-# 
-# ***************************
-# 
-# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
-#    Time: 2950 ps  Iteration: 2  Instance: /tb_simplified_sha256
-# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
 add wave -position insertpoint  \
 sim:/tb_simplified_sha256/simplified_sha256_inst/message
+run -all
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
+# Correct H[1] = 42623974	Your H[1] = xxxxxxxx	ERROR
+# Correct H[2] = bf129635	Your H[2] = xxxxxxxx	ERROR
+# Correct H[3] = 937c5107	Your H[3] = xxxxxxxx	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = xxxxxxxx	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = xxxxxxxx	ERROR
+# Correct H[6] = 0318d121	Your H[6] = xxxxxxxx	ERROR
+# Correct H[7] = 85eca921	Your H[7] = xxxxxxxx	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         165
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3350 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:43:55 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:43:55 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:43:55 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:43:55 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
 run -all
 # GetModuleFileName: The specified module could not be found.
 # 
@@ -151,33 +173,33 @@ run -all
 # 
 # ERROR!  8 hash results are wrong!
 # 
-# Total number of cycles:         145
+# Total number of cycles:         165
 # 
 # 
 # ***************************
 # 
 # ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
-#    Time: 2950 ps  Iteration: 2  Instance: /tb_simplified_sha256
+#    Time: 3350 ps  Iteration: 2  Instance: /tb_simplified_sha256
 # Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:34:55 on Jun 09,2023
+# Start time: 21:44:56 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
 # -- Compiling module simplified_sha256
 # 
 # Top level modules:
 # 	simplified_sha256
-# End time: 21:34:55 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:44:56 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:34:55 on Jun 09,2023
+# Start time: 21:44:56 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
 # -- Compiling module tb_simplified_sha256
 # 
 # Top level modules:
 # 	tb_simplified_sha256
-# End time: 21:34:55 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:44:56 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 restart
 # Loading work.tb_simplified_sha256
@@ -236,23 +258,23 @@ run -all
 # Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:36:29 on Jun 09,2023
+# Start time: 21:46:44 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
 # -- Compiling module simplified_sha256
 # 
 # Top level modules:
 # 	simplified_sha256
-# End time: 21:36:30 on Jun 09,2023, Elapsed time: 0:00:01
+# End time: 21:46:44 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:36:30 on Jun 09,2023
+# Start time: 21:46:44 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
 # -- Compiling module tb_simplified_sha256
 # 
 # Top level modules:
 # 	tb_simplified_sha256
-# End time: 21:36:30 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:46:44 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 restart
 # Loading work.tb_simplified_sha256
@@ -311,32 +333,31 @@ run -all
 # Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:37:30 on Jun 09,2023
+# Start time: 21:47:44 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
 # -- Compiling module simplified_sha256
 # 
 # Top level modules:
 # 	simplified_sha256
-# End time: 21:37:30 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:47:44 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:37:30 on Jun 09,2023
+# Start time: 21:47:44 on Jun 09,2023
 # vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
 # -- Compiling module tb_simplified_sha256
 # 
 # Top level modules:
 # 	tb_simplified_sha256
-# End time: 21:37:30 on Jun 09,2023, Elapsed time: 0:00:00
+# End time: 21:47:44 on Jun 09,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 restart
 # Loading work.tb_simplified_sha256
 # Loading work.simplified_sha256
-run
+run -all
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-run -all
 # --------
 # MESSAGE:
 # --------
@@ -385,5 +406,564 @@ run -all
 # ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
 #    Time: 3350 ps  Iteration: 2  Instance: /tb_simplified_sha256
 # Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
-# End time: 21:38:56 on Jun 09,2023, Elapsed time: 0:06:19
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:49:36 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:49:36 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:49:36 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:49:36 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
+# Correct H[1] = 42623974	Your H[1] = xxxxxxxx	ERROR
+# Correct H[2] = bf129635	Your H[2] = xxxxxxxx	ERROR
+# Correct H[3] = 937c5107	Your H[3] = xxxxxxxx	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = xxxxxxxx	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = xxxxxxxx	ERROR
+# Correct H[6] = 0318d121	Your H[6] = xxxxxxxx	ERROR
+# Correct H[7] = 85eca921	Your H[7] = xxxxxxxx	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         165
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3350 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:51:06 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# ** Error: (vlog-13069) C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(165): near "]": syntax error, unexpected ']'.
+# End time: 21:51:06 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:51:06 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:51:06 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:51:20 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:51:20 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:51:20 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:51:20 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:53:07 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:53:07 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:53:07 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:53:07 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
+# Correct H[1] = 42623974	Your H[1] = xxxxxxxx	ERROR
+# Correct H[2] = bf129635	Your H[2] = xxxxxxxx	ERROR
+# Correct H[3] = 937c5107	Your H[3] = xxxxxxxx	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = xxxxxxxx	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = xxxxxxxx	ERROR
+# Correct H[6] = 0318d121	Your H[6] = xxxxxxxx	ERROR
+# Correct H[7] = 85eca921	Your H[7] = xxxxxxxx	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         166
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3370 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:55:00 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:55:00 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:55:00 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:55:00 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
+# Correct H[1] = 42623974	Your H[1] = 6a09e667	ERROR
+# Correct H[2] = bf129635	Your H[2] = bb67ae85	ERROR
+# Correct H[3] = 937c5107	Your H[3] = 3c6ef372	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = a54ff53a	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = 510e527f	ERROR
+# Correct H[6] = 0318d121	Your H[6] = 9b05688c	ERROR
+# Correct H[7] = 85eca921	Your H[7] = 1f83d9ab	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         166
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3370 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:59:06 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 21:59:06 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:59:06 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 21:59:06 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:00:39 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 22:00:39 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:00:39 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 22:00:39 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+run -all
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = xxxxxxxx	ERROR
+# Correct H[1] = 42623974	Your H[1] = 6a09e667	ERROR
+# Correct H[2] = bf129635	Your H[2] = bb67ae85	ERROR
+# Correct H[3] = 937c5107	Your H[3] = 3c6ef372	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = a54ff53a	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = 510e527f	ERROR
+# Correct H[6] = 0318d121	Your H[6] = 9b05688c	ERROR
+# Correct H[7] = 85eca921	Your H[7] = 1f83d9ab	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         166
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3370 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:15:09 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# ** Error: (vlog-13069) C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(276): near "write_case_var": syntax error, unexpected IDENTIFIER, expecting ';'.
+# End time: 22:15:09 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:15:09 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 22:15:09 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:15:35 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 22:15:35 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:15:35 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 22:15:35 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = 6a09e667	ERROR
+# Correct H[1] = 42623974	Your H[1] = bb67ae85	ERROR
+# Correct H[2] = bf129635	Your H[2] = 3c6ef372	ERROR
+# Correct H[3] = 937c5107	Your H[3] = a54ff53a	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = 510e527f	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = 9b05688c	ERROR
+# Correct H[6] = 0318d121	Your H[6] = 1f83d9ab	ERROR
+# Correct H[7] = 85eca921	Your H[7] = xxxxxxxx	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         166
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3370 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:27 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# 
+# Top level modules:
+# 	simplified_sha256
+# End time: 22:17:27 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:27 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 22:17:27 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_simplified_sha256
+# Loading work.simplified_sha256
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# --------
+# MESSAGE:
+# --------
+# 01234567
+# 02468ace
+# 048d159c
+# 091a2b38
+# 12345670
+# 2468ace0
+# 48d159c0
+# 91a2b380
+# 23456701
+# 468ace02
+# 8d159c04
+# 1a2b3809
+# 34567012
+# 68ace024
+# d159c048
+# a2b38091
+# 45670123
+# 8ace0246
+# 159c048d
+# 00000000
+# ***************************
+# 
+# ---------------------
+# COMPARE HASH RESULTS:
+# ---------------------
+# Correct H[0] = bdd2fbd9	Your H[0] = 6a09e667	ERROR
+# Correct H[1] = 42623974	Your H[1] = bb67ae85	ERROR
+# Correct H[2] = bf129635	Your H[2] = 3c6ef372	ERROR
+# Correct H[3] = 937c5107	Your H[3] = a54ff53a	ERROR
+# Correct H[4] = f09b6e9e	Your H[4] = 510e527f	ERROR
+# Correct H[5] = 708eb28b	Your H[5] = 9b05688c	ERROR
+# Correct H[6] = 0318d121	Your H[6] = 1f83d9ab	ERROR
+# Correct H[7] = 85eca921	Your H[7] = 5be0cd19	ERROR
+# ***************************
+# 
+# ERROR!  8 hash results are wrong!
+# 
+# Total number of cycles:         167
+# 
+# 
+# ***************************
+# 
+# ** Note: $stop    : C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv(262)
+#    Time: 3390 ps  Iteration: 2  Instance: /tb_simplified_sha256
+# Break in Module tb_simplified_sha256 at C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv line 262
+# End time: 22:17:37 on Jun 09,2023, Elapsed time: 0:36:28
 # Errors: 0, Warnings: 0

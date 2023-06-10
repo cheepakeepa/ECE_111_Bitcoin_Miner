@@ -29,7 +29,7 @@ logic [512:0] memory_block;
 logic [ 7:0] tstep;
 logic [31:0] x0, x1;
 logic [1:0] cur_block;
-
+logic [5:0] write_case_var;
 
 // SHA256 K constants
 parameter int k[0:63] = '{
@@ -161,17 +161,22 @@ begin
 		//Read 640 bits message from testbench memory in chunks of 32bits words (i.e. read 20
 		//locations from memory by incrementing address offset)
 		//cur_addr <= message_addr;
-		if(y < NUM_OF_WORDS) begin
-			message[mem_addr] <= mem_read_data;
+		if(y==0) begin
+			message[0] = mem_read_data;
 			offset <= offset + 1;
-			y = y + 1;
+			y<= y+1;
+		end
+		else if(y-1 < NUM_OF_WORDS) begin
+			message[y-1] = mem_read_data;
+			offset <= offset + 1;
+			y <= y + 1;
 		end
 		else begin
 			message[20] <= 32'h80000000;
 			for (int m = 21; m < 31; m++) begin
 				message[m] = 32'h00000000;
 			end
-			w[31] <= size;
+			message[31] = size;
 			state <= BLOCK;
 		end
 	 end
@@ -192,7 +197,8 @@ begin
 				state <= COMPUTE;
 			end
 			else begin
-			
+				offset <= 16'd0;
+				write_case_var <= 5'd0;
 				state <= WRITE;
 			end
     end
@@ -259,55 +265,61 @@ begin
     // write back these h0 to h7 to memory starting from output_addr
     WRITE: begin
 			cur_we <= 1'b1;
+			cur_addr <= output_addr;
 			
-			
-			case (offset) 
+			case (write_case_var) 
 			
 			0: begin
-			
-			offset <= offset + 1;
+			offset<=0;
 			cur_write_data <= h0;
 			state <= WRITE;
+			write_case_var <= 5'd1;
 			end
 			1: begin
-				
-			offset <= offset + 1;
+			offset<=1;
+			write_case_var <= 5'd2;	
 			cur_write_data <= h1;
 			state <= WRITE;
 			end
 			2: begin
-			
-			offset <= offset + 1;
+			offset<=2;
+			write_case_var <= 5'd3;
 			cur_write_data <= h2;
 			state <= WRITE;
 			end
 			3: begin
-			
-			offset <= offset + 1;
+			offset<=3;
+			write_case_var <= 5'd4;
 			cur_write_data <= h3;
 			state <= WRITE;
 			end
 			4: begin 
-			
-			offset <= offset + 1;
+			offset<=4;
+			write_case_var <= 5'd5;
 			cur_write_data <= h4;
 			state <= WRITE;
 			end
 			5: begin
-			offset <= offset + 1;
+			offset<=5;
+			write_case_var <= 5'd6;
 			cur_write_data <= h5;
 			state <= WRITE;
 			end
 			6: begin
-			offset <= offset + 1;
+			offset<=6;
+			write_case_var <= 5'd7;
 			cur_write_data <= h6;
 			state <= WRITE;
 			end
 			7: begin
-			offset <= offset + 1;
+			offset<=7;
 			cur_write_data <= h7;
-			state <= IDLE;
-			done <= 1'b1;
+			write_case_var <= 5'd8;
+
+			end
+			8: begin
+				state <= IDLE;
+				done <= 1'b1;	
 			end
 			default: begin
 			
