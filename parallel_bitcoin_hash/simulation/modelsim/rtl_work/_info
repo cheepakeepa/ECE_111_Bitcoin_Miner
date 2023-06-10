@@ -1,0 +1,86 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simulation/modelsim
+vparallel_bitcoin_hash
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1686437218
+!i10b 1
+!s100 83g9=Oj0bcA3zaG?gKFUC3
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I@<YBioYcXFF[1V86DS:j70
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1686437215
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv
+!i122 84
+L0 1 319
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1686437218.000000
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+vsimplified_sha256
+R1
+R2
+!i10b 1
+!s100 YKYfEYf^<Ma0H?NLj:OD60
+R3
+ILdKYHK;Wb6QIi2RlaUQ4N0
+R4
+S1
+R0
+w1686432085
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simplified_sha256.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simplified_sha256.sv
+!i122 85
+L0 1 311
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simplified_sha256.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simplified_sha256.sv|
+!i113 1
+R7
+R8
+vtb_bitcoin_hash
+R1
+R2
+!i10b 1
+!s100 7A<3J8i7Lm?_b^:T;3AXT3
+R3
+In]K[RDkeDMmk7IV5I3jF<1
+R4
+S1
+R0
+w1686290136
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/tb_parallel_bitcoin_hash.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/tb_parallel_bitcoin_hash.sv
+!i122 86
+L0 1 355
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/tb_parallel_bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/tb_parallel_bitcoin_hash.sv|
+!i113 1
+R7
+R8

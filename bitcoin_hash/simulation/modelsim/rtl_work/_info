@@ -11,24 +11,24 @@ cModel Technology
 Z0 dC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simulation/modelsim
 vbitcoin_hash
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1686400366
+Z2 !s110 1686432354
 !i10b 1
-!s100 TSoQc<[YYiWkAYIa;i[PR2
+!s100 ^dd^SoT1Q]O7QNMmRe=Im2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IolhWb5j2`2h8TUzGKHWnN0
+I0@FKHS`keJ;3n5cL>8L2`1
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1686399882
+w1686432348
 8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv
 FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv
-!i122 162
-L0 1 288
+!i122 17
+L0 1 294
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1686400366.000000
+Z6 !s108 1686432354.000000
 !s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv|
 !s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv|
 !i113 1
@@ -38,17 +38,17 @@ vsimplified_sha256
 R1
 R2
 !i10b 1
-!s100 @8EZgnA<^_aaMI3i5oII]1
+!s100 YKYfEYf^<Ma0H?NLj:OD60
 R3
-Ieh8?h9PKii18EOLb;8W=H2
+I3oZ@H]SehmQiJT6nKMgjE3
 R4
 S1
 R0
-w1686400360
+w1686432085
 8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv
 FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv
-!i122 163
-L0 1 310
+!i122 18
+L0 1 311
 R5
 r1
 !s85 0
@@ -72,7 +72,7 @@ R0
 w1685945537
 8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv
 FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv
-!i122 164
+!i122 19
 L0 1 355
 R5
 r1

@@ -138,16 +138,16 @@ begin
 				cur_block <=1'b0;
             cur_we <= 1'b0; //write enable to memory
 				write_case_var <= 5'd0;
-            cur_addr <= message_addr; //does message_addr need to be initialized to anything?
+            cur_addr <= message_addr; 
 				
             //index variables
-            i <= 0;
+            i <= 1;
 				y <= 0;
 				
             offset <= 16'd0;
 
             //Move to read input message state
-            state <= READ; //maybe need next_state variable instead
+            state <= READ; 
        end
 
          else begin
@@ -173,6 +173,7 @@ begin
 			y <= y + 8'd1;
 		end
 		else begin
+		{a, b, c, d, e, f, g, h} <= {h0, h1, h2, h3, h4, h5, h6, h7};
 			state <= BLOCK;
 		end
 	 end
@@ -184,7 +185,7 @@ begin
 	// Fetch message in 512-bit block size
 	// For each of 512-bit block initiate hash value computation
       done <= 1'b0;
-		{a, b, c, d, e, f, g, h} <= {h0, h1, h2, h3, h4, h5, h6, h7};
+		
 			if	(cur_block == 1'b0) begin
 				state <= COMPUTE;
 				i <=1;
@@ -225,7 +226,7 @@ begin
 				h5 <= h5 + f;
 				h6 <= h6 + g;
 				h7 <= h7 + h;
-				i <= 0;
+				i <= 1;
 				offset <= 16'd0;
 				state <= BLOCK;
 				cur_block <= 1'b1;

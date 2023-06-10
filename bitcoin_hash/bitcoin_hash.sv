@@ -9,7 +9,15 @@ parameter num_nonces = 16;
 
 //logic [ 4:0] state;
 logic [31:0] hout[num_nonces];
-parameter logic [31:0] SHA_256_constants[7:0] = '{32'h6a09e667,32'hbb67ae85,32'h3c6ef372,32'ha54ff53a,32'h510e527f,32'h9b05688c, 32'h1f83d9ab,32'h5be0cd19};
+parameter logic [31:0] SHA_256_constants[7:0] = '{32'h5be0cd19, 32'h1f83d9ab, 32'h9b05688c, 32'h510e527f, 32'ha54ff53a, 32'h3c6ef372, 32'hbb67ae85, 32'h6a09e667};
+			    
+             
+             
+             
+             
+             
+             
+             
 logic [15:0] internal_output_addr;
 
 /*parameter int k[64] = '{
