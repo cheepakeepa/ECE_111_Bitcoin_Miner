@@ -1,12 +1,12 @@
-module simplified_sha256 #(parameter integer NUM_OF_WORDS = 20)(
+module simplified_sha256 #(parameter integer NUM_OF_WORDS = 16)(
  input logic  clk, reset_n, start,
  input logic  [15:0] message_addr, output_addr,
  output logic done, mem_clk, mem_we,
  output logic [15:0] mem_addr,
  output logic [31:0] mem_write_data,
  input logic [31:0] mem_read_data,
- input logic [31:0] hin[7:0]
- );
+ input logic [31:0] hin[7:0],
+ input logic [7:0] read_buffer);
 
 // FSM state variables 
 enum logic [2:0] {IDLE, READ, BLOCK, COMPUTE, WRITE} state;
@@ -16,21 +16,20 @@ enum logic [2:0] {IDLE, READ, BLOCK, COMPUTE, WRITE} state;
 // or modify these variables. Code below is more as a reference.
 
 // Local variables
-logic [31:0] w[64];
-logic [31:0] message[20];
-logic [31:0] wt;
+logic [31:0] w[63:0];
+logic [31:0] message [15:0];
 logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;
 logic [31:0] a, b, c, d, e, f, g, h;
-logic [ 7:0] i, j;
+logic [ 7:0] i, y;
 logic [15:0] offset; // in word address
-logic [ 7:0] num_blocks;
+//logic [15:0] num_blocks;
 logic        cur_we;
 logic [15:0] cur_addr;
 logic [31:0] cur_write_data;
-logic [512:0] memory_block;
 logic [ 7:0] tstep;
-
-
+logic [31:0] x0, x1;
+logic 		 cur_block;
+logic [5:0]  write_case_var;
 
 // SHA256 K constants
 parameter int k[0:63] = '{
@@ -45,16 +44,22 @@ parameter int k[0:63] = '{
 };
 
 
-assign num_blocks = determine_num_blocks(NUM_OF_WORDS); 
-assign tstep = (i - 1);
+//assign num_blocks = determine_num_blocks(size); 
+assign tstep = (i - 8'd1);
 
 // Note : Function defined are for reference purpose. Feel free to add more functions or modify below.
 // Function to determine number of blocks in memory to fetch
-function logic [15:0] determine_num_blocks(input logic [31:0] size);
+/*function logic [15:0] determine_num_blocks(input logic [15:0] size);
 
   // Student to add function implementation
+  if ((size) % 512 == 0) begin
+    determine_num_blocks = (size) / 16'd512;
+  end
+  else begin
+    determine_num_blocks = ((size) / 16'd512) + 16'd1;
+  end
 
-endfunction
+endfunction*/
 
 
 // SHA256 hash round
@@ -66,7 +71,7 @@ begin
     // Student to add remaning code below
     // Refer to SHA256 discussion slides to get logic for this function
     ch = (e & f) ^ ((~e) & g);
- //   t1 = H + S1 + ch + k[t] + w;
+    t1 = h + S1 + ch + k[t] + w;
     S0 = rightrotate(a, 2) ^ rightrotate(a, 13) ^ rightrotate(a, 22);
     maj = (a & b) ^ (a & c) ^ (b & c);
     t2 = S0 + maj;
@@ -82,7 +87,8 @@ assign mem_clk = clk;
 assign mem_addr = cur_addr + offset;
 assign mem_we = cur_we;
 assign mem_write_data = cur_write_data;
-
+//int size;
+//assign size = NUM_OF_WORDS *32;
 
 // Right Rotation Example : right rotate input x by r
 // Lets say input x = 1111 ffff 2222 3333 4444 6666 7777 8888
@@ -107,18 +113,69 @@ begin
   if (!reset_n) begin
     cur_we <= 1'b0;
     state <= IDLE;
+	 done <= 1'b0;
   end 
   else case (state)
     // Initialize hash values h0 to h7 and a to h, other variables and memory we, address offset, etc
     IDLE: begin 
        if(start) begin
-       // Student to add rest of the code  
+       // Student to add rest of the code
+            //initializing hash values (final project SHA-256 slide 21)
+				
 
+            //initializing a to h
+            h0 <= hin[0];
+            h1 <= hin[1];
+            h2 <= hin[2];
+            h3 <= hin[3];
+            h4 <= hin[4];
+            h5 <= hin[5];
+            h6 <= hin[6];
+            h7 <= hin[7];
 
+            //initialize write enable to memory, memory address offset,
+            //curr_addr to first message location in memory, index variables, etc
+				cur_block <=1'b0;
+            cur_we <= 1'b0; //write enable to memory
+				write_case_var <= 5'd0;
+            cur_addr <= message_addr; //does message_addr need to be initialized to anything?
+				
+            //index variables
+            i <= 0;
+				y <= 0;
+				
+            offset <= 16'd0;
 
-
+            //Move to read input message state
+            state <= READ; //maybe need next_state variable instead
        end
+
+         else begin
+
+            cur_we <= 0;
+            state <= IDLE;
+         end
     end
+	 
+	 READ: begin
+		//Read 640 bits message from testbench memory in chunks of 32bits words (i.e. read 20
+		//locations from memory by incrementing address offset)
+		//cur_addr <= message_addr;
+		done<= 1'b0;
+		if(y<8'd1+read_buffer) begin
+			message[0] = mem_read_data;
+			offset = offset + 16'd1;
+			y<= y + 8'd1;
+		end
+		else if(y-(8'd1+read_buffer) < NUM_OF_WORDS) begin
+			message[y-(8'd1+read_buffer)] = mem_read_data;
+			offset <= offset + 16'd1;
+			y <= y + 8'd1;
+		end
+		else begin
+			state <= BLOCK;
+		end
+	 end
 
     // SHA-256 FSM 
     // Get a BLOCK from the memory, COMPUTE Hash output using SHA256 function    
@@ -126,23 +183,25 @@ begin
     BLOCK: begin
 	// Fetch message in 512-bit block size
 	// For each of 512-bit block initiate hash value computation
-      
-					if (j < num_blocks) begin
-						if( i < 16) begin
-							w[i] <= message[i];
-							i <= i + 1;
-							
-						
-
-
-   
-
-
-
-
-    
+      done <= 1'b0;
+		{a, b, c, d, e, f, g, h} <= {h0, h1, h2, h3, h4, h5, h6, h7};
+			if	(cur_block == 1'b0) begin
+				state <= COMPUTE;
+				i <=1;
+				for (int t = 0; t < 64; t++) begin
+					if (t < 16) begin
+						w[t] = message[t];
+					end else begin
+						x0 = rightrotate(w[t-15], 7) ^ rightrotate(w[t-15], 18) ^ (w[t-15] >> 3);
+						x1 = rightrotate(w[t-2], 17) ^ rightrotate(w[t-2], 19) ^ (w[t-2] >> 10);
+						w[t] = w[t-16] + x0 + w[t-7] + x1;
+					end
 				end
-				end
+			end
+			else begin
+				offset <= 16'd0;
+				state <= WRITE;
+			end
     end
 
     // For each block compute hash function
@@ -151,15 +210,13 @@ begin
     // move to WRITE stage
     COMPUTE: begin
 	// 64 processing rounds steps for 512-bit block 
-        if (i <= 64) begin
+			if (tstep < 64) begin
 
-					{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[i], i);;
-					i <= i + 1;
-					state <= COMPUTE;
-				end
-				
-				else begin
-				
+				{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[tstep], tstep);
+					//w(tstep);
+				i <= i + 8'd1;
+			end
+			else begin
 				h0 <= h0 + a;
 				h1 <= h1 + b;
 				h2 <= h2 + c;
@@ -168,63 +225,86 @@ begin
 				h5 <= h5 + f;
 				h6 <= h6 + g;
 				h7 <= h7 + h;
-				
-				a <= a + h0;
-				b <= b + h1;
-				c <= c + h2;
-				d <= d + h3;
-				e <= e + h4;
-				f <= f + h5;
-				g <= g + h6;
-				h <= h + h7;
-				
 				i <= 0;
+				offset <= 16'd0;
 				state <= BLOCK;
-				
-
-
-
-        end
+				cur_block <= 1'b1;
+			end
+			
     end
 
     // h0 to h7 each are 32 bit hashes, which makes up total 256 bit value
     // h0 to h7 after compute stage has final computed hash value
     // write back these h0 to h7 to memory starting from output_addr
     WRITE: begin
+			cur_we <= 1'b1;
+			cur_addr <= output_addr;
 			
-			mem_addr <= output_addr;
-			mem_write_data <= h0;
+			case (write_case_var) 
 			
-			mem_addr <= output_addr + 1;
-			mem_write_data <= h1;
-			
-			mem_addr <= output_addr + 2;
-			mem_write_data <= h2;
-			
-			mem_addr <= output_addr + 3;
-			mem_write_data <= h3;
-			
-			mem_addr <= output_addr + 4;
-			mem_write_data <= h4;
-			
-			mem_addr <= output_addr + 5;
-			mem_write_data <= h5;
-			
-			mem_addr <= output_addr + 6;
-			mem_write_data <= h6;
-			
-			mem_addr <= output_addr + 7;
-			mem_write_data <= h7;
-			
-			
-		
-	
+			0: begin
+			offset<=0;
+			cur_write_data <= h0;
+			state <= WRITE;
+			write_case_var <= 5'd1;
+			end
+			1: begin
+			offset<=1;
+			write_case_var <= 5'd2;	
+			cur_write_data <= h1;
+			state <= WRITE;
+			end
+			2: begin
+			offset<=2;
+			write_case_var <= 5'd3;
+			cur_write_data <= h2;
+			state <= WRITE;
+			end
+			3: begin
+			offset<=3;
+			write_case_var <= 5'd4;
+			cur_write_data <= h3;
+			state <= WRITE;
+			end
+			4: begin 
+			offset<=4;
+			write_case_var <= 5'd5;
+			cur_write_data <= h4;
+			state <= WRITE;
+			end
+			5: begin
+			offset<=5;
+			write_case_var <= 5'd6;
+			cur_write_data <= h5;
+			state <= WRITE;
+			end
+			6: begin
+			offset<=6;
+			write_case_var <= 5'd7;
+			cur_write_data <= h6;
+			state <= WRITE;
+			end
+			7: begin
+			offset<=7;
+			cur_write_data <= h7;
+			write_case_var <= 5'd8;
 
-    end
+			end
+			8: begin
+				state <= IDLE;
+				done <= 1'b1;	
+			end
+			default: begin
+			
+			offset <= offset;
+			state <= WRITE;
+			end
+				
    endcase
   end
-
+endcase
 // Generate done when SHA256 hash computation has finished and moved to IDLE state
-assign done = (state == IDLE);
+//assign done = (state == IDLE);
 
+end
 endmodule

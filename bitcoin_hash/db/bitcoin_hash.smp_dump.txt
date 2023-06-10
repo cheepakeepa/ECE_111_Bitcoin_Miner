@@ -1,0 +1,28 @@
+
+State Machine - |bitcoin_hash|state
+Name state.PHASE_3 state.DONE state.PHASE_2 state.IDLE state.PHASE_1 
+state.IDLE 0 0 0 0 0 
+state.PHASE_1 0 0 0 1 1 
+state.PHASE_2 0 0 1 1 0 
+state.DONE 0 1 0 1 0 
+state.PHASE_3 1 0 0 1 0 
+
+State Machine - |bitcoin_hash|simplified_sha256:sha_inst|write_case_var
+Name write_case_var.000111 write_case_var.000110 write_case_var.000101 write_case_var.000100 write_case_var.000011 write_case_var.000010 write_case_var.000001 write_case_var.000000 write_case_var.001000 
+write_case_var.000000 0 0 0 0 0 0 0 0 0 
+write_case_var.000001 0 0 0 0 0 0 1 1 0 
+write_case_var.000010 0 0 0 0 0 1 0 1 0 
+write_case_var.000011 0 0 0 0 1 0 0 1 0 
+write_case_var.000100 0 0 0 1 0 0 0 1 0 
+write_case_var.000101 0 0 1 0 0 0 0 1 0 
+write_case_var.000110 0 1 0 0 0 0 0 1 0 
+write_case_var.000111 1 0 0 0 0 0 0 1 0 
+write_case_var.001000 0 0 0 0 0 0 0 1 1 
+
+State Machine - |bitcoin_hash|simplified_sha256:sha_inst|state
+Name state.COMPUTE state.BLOCK state.READ state.IDLE state.WRITE 
+state.IDLE 0 0 0 0 0 
+state.READ 0 0 1 1 0 
+state.BLOCK 0 1 0 1 0 
+state.COMPUTE 1 0 0 1 0 
+state.WRITE 0 0 0 1 1 

@@ -1,0 +1,86 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simulation/modelsim
+vbitcoin_hash
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1686400366
+!i10b 1
+!s100 TSoQc<[YYiWkAYIa;i[PR2
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IolhWb5j2`2h8TUzGKHWnN0
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1686399882
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv
+!i122 162
+L0 1 288
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1686400366.000000
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+vsimplified_sha256
+R1
+R2
+!i10b 1
+!s100 @8EZgnA<^_aaMI3i5oII]1
+R3
+Ieh8?h9PKii18EOLb;8W=H2
+R4
+S1
+R0
+w1686400360
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv
+!i122 163
+L0 1 310
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv|
+!i113 1
+R7
+R8
+vtb_bitcoin_hash
+R1
+R2
+!i10b 1
+!s100 RS7MYioZZ1=^MoE4YDhTZ1
+R3
+IRR1m?DoJ95EVb:7<`W[972
+R4
+S1
+R0
+w1685945537
+8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv
+FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv
+!i122 164
+L0 1 355
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/tb_bitcoin_hash.sv|
+!i113 1
+R7
+R8
