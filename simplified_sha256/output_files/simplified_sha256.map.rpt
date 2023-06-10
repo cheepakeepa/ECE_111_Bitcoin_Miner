@@ -1,0 +1,784 @@
+Analysis & Synthesis report for simplified_sha256
+Fri Jun 09 17:30:54 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |simplified_sha256|state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++-----------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status       ; Successful - Fri Jun 09 17:30:54 2023       ;
+; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                     ; simplified_sha256                           ;
+; Top-level Entity Name             ; simplified_sha256                           ;
+; Family                            ; Arria II GX                                 ;
+; Logic utilization                 ; N/A                                         ;
+;     Combinational ALUTs           ; 4                                           ;
+;     Memory ALUTs                  ; 0                                           ;
+;     Dedicated logic registers     ; 19                                          ;
+; Total registers                   ; 19                                          ;
+; Total pins                        ; 118                                         ;
+; Total virtual pins                ; 0                                           ;
+; Total block memory bits           ; 0                                           ;
+; DSP block 18-bit elements         ; 0                                           ;
+; Total GXB Receiver Channel PCS    ; 0                                           ;
+; Total GXB Receiver Channel PMA    ; 0                                           ;
+; Total GXB Transmitter Channel PCS ; 0                                           ;
+; Total GXB Transmitter Channel PMA ; 0                                           ;
+; Total PLLs                        ; 0                                           ;
+; Total DLLs                        ; 0                                           ;
++-----------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; EP2AGX45DF29I5     ;                    ;
+; Top-level entity name                                                           ; simplified_sha256  ; simplified_sha256  ;
+; Family name                                                                     ; Arria II GX        ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                        ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                               ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                         ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; simplified_sha256.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++-----------------------------------------------+-----------+
+; Resource                                      ; Usage     ;
++-----------------------------------------------+-----------+
+; Estimated ALUTs Used                          ; 4         ;
+;     -- Combinational ALUTs                    ; 4         ;
+;     -- Memory ALUTs                           ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+; Dedicated logic registers                     ; 19        ;
+;                                               ;           ;
+; Estimated ALUTs Unavailable                   ; 0         ;
+;     -- Due to unpartnered combinational logic ; 0         ;
+;     -- Due to Memory ALUTs                    ; 0         ;
+;                                               ;           ;
+; Total combinational functions                 ; 4         ;
+; Combinational ALUT usage by number of inputs  ;           ;
+;     -- 7 input functions                      ; 0         ;
+;     -- 6 input functions                      ; 0         ;
+;     -- 5 input functions                      ; 0         ;
+;     -- 4 input functions                      ; 0         ;
+;     -- <=3 input functions                    ; 4         ;
+;                                               ;           ;
+; Combinational ALUTs by mode                   ;           ;
+;     -- normal mode                            ; 4         ;
+;     -- extended LUT mode                      ; 0         ;
+;     -- arithmetic mode                        ; 0         ;
+;     -- shared arithmetic mode                 ; 0         ;
+;                                               ;           ;
+; Estimated ALUT/register pairs used            ; 20        ;
+;                                               ;           ;
+; Total registers                               ; 19        ;
+;     -- Dedicated logic registers              ; 19        ;
+;     -- I/O registers                          ; 0         ;
+;     -- LUT_REGs                               ; 0         ;
+;                                               ;           ;
+;                                               ;           ;
+; I/O pins                                      ; 118       ;
+;                                               ;           ;
+; DSP block 18-bit elements                     ; 0         ;
+;                                               ;           ;
+; Maximum fan-out node                          ; clk~input ;
+; Maximum fan-out                               ; 20        ;
+; Total fan-out                                 ; 205       ;
+; Average fan-out                               ; 0.79      ;
++-----------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 12x12 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+; |simplified_sha256         ; 4 (4)               ; 19 (19)                   ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0         ; 118  ; 0            ; |simplified_sha256  ; simplified_sha256 ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+--------------+---------+-----------+-----------+-----------+------+--------------+---------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |simplified_sha256|state                                            ;
++---------------+---------------+-------------+------------+------------+-------------+
+; Name          ; state.COMPUTE ; state.BLOCK ; state.READ ; state.IDLE ; state.WRITE ;
++---------------+---------------+-------------+------------+------------+-------------+
+; state.IDLE    ; 0             ; 0           ; 0          ; 0          ; 0           ;
+; state.READ    ; 0             ; 0           ; 1          ; 1          ; 0           ;
+; state.BLOCK   ; 0             ; 1           ; 0          ; 1          ; 0           ;
+; state.COMPUTE ; 1             ; 0           ; 0          ; 1          ; 0           ;
+; state.WRITE   ; 0             ; 0           ; 0          ; 1          ; 1           ;
++---------------+---------------+-------------+------------+------------+-------------+
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++--------------------------------------------+---------------------------------------------+
+; Register name                              ; Reason for Removal                          ;
++--------------------------------------------+---------------------------------------------+
+; offset[4..9,11..15]                        ; Merged with offset[10]                      ;
+; offset[10]                                 ; Stuck at GND due to stuck port data_in      ;
+; state~9                                    ; Lost fanout                                 ;
+; state~10                                   ; Lost fanout                                 ;
+; state.BLOCK                                ; Stuck at GND due to stuck port data_in      ;
+; i[0..7]                                    ; Stuck at GND due to stuck port sclear       ;
+; state.COMPUTE                              ; Stuck at GND due to stuck port data_in      ;
+; h7[0]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h6[0]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[0]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[0]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[0]                                      ; Stuck at GND due to stuck port data_in      ;
+; h2[0]                                      ; Stuck at GND due to stuck port data_in      ;
+; h1[0]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h0[0]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[1]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[1]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[1]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[1]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[1]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h2[1]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[1]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[1]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[2]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[2]                                      ; Stuck at GND due to stuck port data_in      ;
+; h5[2]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h4[2]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[2]                                      ; Stuck at GND due to stuck port data_in      ;
+; h2[2]                                      ; Stuck at GND due to stuck port data_in      ;
+; h1[2]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h0[2]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[3]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h6[3]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[3]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h4[3]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[3]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h2[3]                                      ; Stuck at GND due to stuck port data_in      ;
+; h1[3]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[3]                                      ; Stuck at GND due to stuck port data_in      ;
+; h7[4]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h6[4]                                      ; Stuck at GND due to stuck port data_in      ;
+; h5[4]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[4]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[4]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h2[4]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[4]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[4]                                      ; Stuck at GND due to stuck port data_in      ;
+; h7[5]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[5]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[5]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[5]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[5]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h2[5]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[5]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[5]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[6]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[6]                                      ; Stuck at GND due to stuck port data_in      ;
+; h5[6]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[6]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[6]                                      ; Stuck at GND due to stuck port data_in      ;
+; h2[6]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[6]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[6]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[7]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[7]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[7]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h4[7]                                      ; Stuck at GND due to stuck port data_in      ;
+; h3[7]                                      ; Stuck at GND due to stuck port data_in      ;
+; h2[7]                                      ; Stuck at GND due to stuck port data_in      ;
+; h1[7]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h0[7]                                      ; Stuck at GND due to stuck port data_in      ;
+; h7[8]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h6[8]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h5[8]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[8]                                      ; Stuck at GND due to stuck port data_in      ;
+; h3[8]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h2[8]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[8]                                      ; Stuck at GND due to stuck port data_in      ;
+; h0[8]                                      ; Stuck at GND due to stuck port data_in      ;
+; h7[9]                                      ; Stuck at GND due to stuck port data_in      ;
+; h6[9]                                      ; Stuck at GND due to stuck port data_in      ;
+; h5[9]                                      ; Stuck at GND due to stuck port data_in      ;
+; h4[9]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h3[9]                                      ; Stuck at GND due to stuck port data_in      ;
+; h2[9]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h1[9]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h0[9]                                      ; Stuck at VCC due to stuck port data_in      ;
+; h7[10]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[10]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[10]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[10]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[10]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[10]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[10]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[10]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[11]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[11]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[11]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[11]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[11]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[11]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[11]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[11]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[12]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[12]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[12]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[12]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[12]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[12]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[12]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[12]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[13]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[13]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[13]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[13]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[13]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[13]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[13]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[13]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[14]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[14]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[15]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[15]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[15]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[16]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[16]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[16]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[16]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[16]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[16]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[16]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[16]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[17]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[17]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[17]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[17]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[17]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[17]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[17]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[17]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[18]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[18]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[18]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[18]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[18]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[18]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[18]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[18]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[19]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[19]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[19]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[19]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[19]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[19]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[19]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[19]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[20]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[21]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[21]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[21]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[21]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[21]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[21]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[21]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[21]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[22]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[22]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[22]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[22]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[22]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[22]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[22]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[22]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[23]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[23]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[23]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[24]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[24]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[24]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[25]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[25]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[25]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[25]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[25]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[25]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[25]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[25]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[26]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[26]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[26]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[26]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[26]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[26]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[26]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[26]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[27]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[27]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[27]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h5[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[28]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[28]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[28]                                     ; Stuck at GND due to stuck port data_in      ;
+; h7[29]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[29]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[29]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[29]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[29]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[29]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h1[29]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[29]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[30]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h6[30]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[30]                                     ; Stuck at GND due to stuck port data_in      ;
+; h4[30]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h3[30]                                     ; Stuck at GND due to stuck port data_in      ;
+; h2[30]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[30]                                     ; Stuck at GND due to stuck port data_in      ;
+; h0[30]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h7[31]                                     ; Stuck at GND due to stuck port data_in      ;
+; h6[31]                                     ; Stuck at GND due to stuck port data_in      ;
+; h5[31]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h4[31]                                     ; Stuck at GND due to stuck port data_in      ;
+; h3[31]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h2[31]                                     ; Stuck at GND due to stuck port data_in      ;
+; h1[31]                                     ; Stuck at VCC due to stuck port data_in      ;
+; h0[31]                                     ; Stuck at GND due to stuck port data_in      ;
+; h[1,2,5..7,9,12,13,16..20,26,29,31]        ; Stuck at GND due to stuck port sload        ;
+; g[2,4,6,9,10,13,18..22,29..31]             ; Stuck at GND due to stuck port sload        ;
+; f[0,1,4..6,8..10,12,15,17,19..23,26,29,30] ; Stuck at GND due to stuck port sload        ;
+; e[7,8,10,11,13,15,16,20..23,25..27,29,31]  ; Stuck at GND due to stuck port sload        ;
+; d[0,2,6,7,9,11,20,21,23,25,27,28,30]       ; Stuck at GND due to stuck port sload        ;
+; c[0,2,3,7,10,11,16,20,23..25,30,31]        ; Stuck at GND due to stuck port sload        ;
+; b[1,3..6,8,12,14,19,20,23,26,30]           ; Stuck at GND due to stuck port sload        ;
+; a[3,4,7,8,11,12,17,18,20..24,26,28,31]     ; Stuck at GND due to stuck port sload        ;
+; cur_write_data[20]                         ; Stuck at GND due to stuck port data_in      ;
+; state.WRITE                                ; Stuck at GND due to stuck port data_in      ;
+; offset[0..3]                               ; Stuck at GND due to stuck port sclear       ;
+; cur_write_data[0..19,21..31]               ; Stuck at GND due to stuck port clock_enable ;
+; done~reg0                                  ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 438    ;                                             ;
++--------------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                  ;
++---------------+---------------------------+------------------------------------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                                           ;
++---------------+---------------------------+------------------------------------------------------------------------------------------------------------------+
+; state.COMPUTE ; Stuck at GND              ; h7[0], h6[0], h5[0], h4[0], h3[0], h2[0], h1[0], h0[0], h7[1], h6[1], h5[1], h4[1], h3[1], h2[1], h1[1], h0[1],  ;
+;               ; due to stuck port data_in ; h7[2], h6[2], h5[2], h4[2], h3[2], h2[2], h1[2], h0[2], h7[3], h6[3], h5[3], h4[3], h3[3], h2[3], h1[3], h0[3],  ;
+;               ;                           ; h7[4], h6[4], h5[4], h4[4], h3[4], h2[4], h1[4], h0[4], h7[5], h6[5], h5[5], h4[5], h3[5], h2[5], h1[5], h0[5],  ;
+;               ;                           ; h7[6], h6[6], h5[6], h4[6], h3[6], h2[6], h1[6], h0[6], h7[7], h6[7], h5[7], h4[7], h3[7], h2[7], h1[7], h0[7],  ;
+;               ;                           ; h7[8], h6[8], h5[8], h4[8], h3[8], h2[8], h1[8], h0[8], h7[9], h6[9], h5[9], h4[9], h3[9], h2[9], h1[9], h0[9],  ;
+;               ;                           ; h7[10], h6[10], h5[10], h4[10], h3[10], h2[10], h1[10], h0[10], h7[11], h6[11], h5[11], h4[11], h3[11],          ;
+;               ;                           ; h2[11], h1[11], h0[11], h7[12], h6[12], h5[12], h4[12], h3[12], h2[12], h1[12], h0[12], h7[13], h6[13],          ;
+;               ;                           ; h5[13], h4[13], h3[13], h2[13], h1[13], h0[13], h7[14], h6[14], h5[14], h4[14], h3[14], h2[14], h1[14],          ;
+;               ;                           ; h0[14], h7[15], h6[15], h5[15], h4[15], h3[15], h2[15], h1[15], h0[15], h7[16], h6[16], h5[16], h4[16],          ;
+;               ;                           ; h3[16], h2[16], h1[16], h0[16], h7[17], h6[17], h5[17], h4[17], h3[17], h2[17], h1[17], h0[17], h7[18],          ;
+;               ;                           ; h6[18], h5[18], h4[18], h3[18], h2[18], h1[18], h0[18], h7[19], h6[19], h5[19], h4[19], h3[19], h2[19],          ;
+;               ;                           ; h1[19], h0[19], h7[20], h6[20], h5[20], h4[20], h3[20], h2[20], h1[20], h0[20], h7[21], h6[21], h5[21],          ;
+;               ;                           ; h4[21], h3[21], h2[21], h1[21], h0[21], h7[22], h6[22], h5[22], h4[22], h3[22], h2[22], h1[22], h0[22],          ;
+;               ;                           ; h7[23], h6[23], h5[23], h4[23], h3[23], h2[23], h1[23], h0[23], h7[24], h6[24], h5[24], h4[24], h3[24],          ;
+;               ;                           ; h2[24], h1[24], h0[24], h7[25], h6[25], h5[25], h4[25], h3[25], h2[25], h1[25], h0[25], h7[26], h6[26],          ;
+;               ;                           ; h5[26], h4[26], h3[26], h2[26], h1[26], h0[26], h7[27], h6[27], h5[27], h4[27], h3[27], h2[27], h1[27],          ;
+;               ;                           ; h0[27], h7[28], h6[28], h5[28], h4[28], h3[28], h2[28], h1[28], h0[28], h7[29], h6[29], h5[29], h4[29],          ;
+;               ;                           ; h3[29], h2[29], h1[29], h0[29], h7[30], h6[30], h5[30], h4[30], h3[30], h2[30], h1[30], h0[30], h7[31],          ;
+;               ;                           ; h6[31], h5[31], h4[31], h3[31], h2[31], h1[31], h0[31], h[31], h[29], h[26], h[20], h[19], h[18], h[17],         ;
+;               ;                           ; h[16], h[13], h[12], h[9], h[7], h[6], h[5], h[2], h[1], g[31], g[30], g[29], g[22], g[21], g[20], g[19], g[18], ;
+;               ;                           ; g[13], g[10], g[9], g[6], g[4], g[2], f[30], f[29], f[26], f[23], f[22], f[21], f[20], f[19], f[17], f[15],      ;
+;               ;                           ; f[12], f[10], f[9], f[8], f[6], f[5], f[4], f[1], f[0], e[31], e[29], e[27], e[26], e[25], e[23], e[22], e[21],  ;
+;               ;                           ; e[20], e[16], e[15], e[13], e[11], e[10], e[8], e[7], d[30], d[28], d[27], d[25], d[23], d[21], d[20], d[11],    ;
+;               ;                           ; d[9], d[7], d[6], d[2], d[0], c[31], c[30], c[25], c[24], c[23], c[20], c[16], c[11], c[10], c[7], c[3], c[2],   ;
+;               ;                           ; c[0], b[30], b[26], b[23], b[20], b[19], b[14], b[12], b[8], b[6], b[5], b[4], b[3], b[1], a[31], a[28], a[26],  ;
+;               ;                           ; a[24], a[23], a[22], a[21], a[20], a[18], a[17], a[12], a[11], a[8], a[7], a[4], a[3]                            ;
+; offset[10]    ; Stuck at GND              ; cur_write_data[20], offset[3], offset[2], cur_write_data[0], cur_write_data[1],                                  ;
+;               ; due to stuck port data_in ; cur_write_data[2], cur_write_data[3], cur_write_data[4], cur_write_data[5],                                      ;
+;               ;                           ; cur_write_data[6], cur_write_data[7], cur_write_data[8], cur_write_data[9],                                      ;
+;               ;                           ; cur_write_data[10], cur_write_data[11], cur_write_data[12], cur_write_data[13],                                  ;
+;               ;                           ; cur_write_data[14], cur_write_data[15], cur_write_data[16], cur_write_data[17],                                  ;
+;               ;                           ; cur_write_data[18], cur_write_data[19], cur_write_data[21], cur_write_data[22],                                  ;
+;               ;                           ; cur_write_data[23], cur_write_data[24], cur_write_data[25], cur_write_data[26],                                  ;
+;               ;                           ; cur_write_data[27], cur_write_data[28], cur_write_data[29], cur_write_data[30],                                  ;
+;               ;                           ; cur_write_data[31]                                                                                               ;
+; state.BLOCK   ; Stuck at GND              ; i[4], i[5], i[6], i[7], i[1], i[0], i[2], i[3], done~reg0                                                        ;
+;               ; due to stuck port data_in ;                                                                                                                  ;
+; state.WRITE   ; Stuck at GND              ; offset[1], offset[0]                                                                                             ;
+;               ; due to stuck port data_in ;                                                                                                                  ;
++---------------+---------------------------+------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 19    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 3     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 4:1                ; 4 bits    ; 8 ALUTs       ; 4 ALUTs              ; 4 ALUTs                ; Yes        ; |simplified_sha256|offset[3]         ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 256 ALUTs            ; 512 ALUTs              ; Yes        ; |simplified_sha256|h6[2]             ;
+; 5:1                ; 256 bits  ; 768 ALUTs     ; 0 ALUTs              ; 768 ALUTs              ; Yes        ; |simplified_sha256|a[3]              ;
+; 7:1                ; 8 bits    ; 32 ALUTs      ; 0 ALUTs              ; 32 ALUTs               ; Yes        ; |simplified_sha256|i[7]              ;
+; 9:1                ; 32 bits   ; 192 ALUTs     ; 192 ALUTs            ; 0 ALUTs                ; Yes        ; |simplified_sha256|cur_write_data[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |simplified_sha256 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; NUM_OF_WORDS   ; 20    ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriaii_ff            ; 19                          ;
+;     CLR               ; 3                           ;
+;     ENA               ; 16                          ;
+; boundary_port         ; 118                         ;
+; stratixiv_lcell_comb  ; 5                           ;
+;     normal            ; 5                           ;
+;         0 data inputs ; 1                           ;
+;         3 data inputs ; 4                           ;
+;                       ;                             ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 0.21                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Fri Jun 09 17:30:45 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simplified_sha256 -c simplified_sha256
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20032): Parallel compilation is enabled and will use up to 8 processors
+Info (12021): Found 1 design units, including 1 entities, in source file tb_simplified_sha256.sv
+    Info (12023): Found entity 1: tb_simplified_sha256 File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file simplified_sha256.sv
+    Info (12023): Found entity 1: simplified_sha256 File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 1
+Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(34): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 34
+Info (12127): Elaborating entity "simplified_sha256" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(22): object "j" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 22
+Warning (10036): Verilog HDL or VHDL warning at simplified_sha256.sv(24): object "num_blocks" assigned a value but never read File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 24
+Warning (10858): Verilog HDL warning at simplified_sha256.sv(28): object memory_block used but never assigned File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 28
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(214): truncated value with size 33 to match size of target (32) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 214
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(239): truncated value with size 32 to match size of target (8) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 239
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(276): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 276
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(282): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 282
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(288): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 288
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(294): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 294
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(300): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 300
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(305): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 305
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(310): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 310
+Warning (10230): Verilog HDL assignment warning at simplified_sha256.sv(315): truncated value with size 32 to match size of target (16) File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 315
+Info (10264): Verilog HDL Case Statement information at simplified_sha256.sv(115): all case item expressions in this case statement are onehot File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 115
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "done" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 4
+    Warning (13410): Pin "mem_write_data[0]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[1]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[2]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[3]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[4]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[5]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[6]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[7]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[8]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[9]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[10]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[11]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[12]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[13]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[14]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[15]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[16]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[17]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[18]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[19]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[20]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[21]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[22]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[23]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[24]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[25]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[26]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[27]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[28]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[29]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[30]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+    Warning (13410): Pin "mem_write_data[31]" is stuck at GND File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 6
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 48 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "output_addr[0]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[1]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[2]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[3]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[4]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[5]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[6]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[7]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[8]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[9]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[10]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[11]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[12]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[13]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[14]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "output_addr[15]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 3
+    Warning (15610): No output dependent on input pin "mem_read_data[0]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[1]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[2]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[3]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[4]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[5]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[6]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[7]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[8]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[9]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[10]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[11]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[12]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[13]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[14]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[15]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[16]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[17]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[18]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[19]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[20]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[21]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[22]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[23]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[24]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[25]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[26]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[27]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[28]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[29]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[30]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+    Warning (15610): No output dependent on input pin "mem_read_data[31]" File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 7
+Info (21057): Implemented 138 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 20 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Fri Jun 09 17:30:54 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
+
+
