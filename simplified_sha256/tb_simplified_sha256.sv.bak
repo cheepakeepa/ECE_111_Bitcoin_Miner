@@ -261,7 +261,7 @@ begin
 
     $stop;
 
-    //$finish();
+    $finish();
 end
 
 // memory model
