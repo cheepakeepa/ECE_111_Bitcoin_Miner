@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at simplified_sha256.sv(109): always construct contains both blocking and non-blocking assignments File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 109
+Warning (10268): Verilog HDL information at simplified_sha256.sv(111): always construct contains both blocking and non-blocking assignments File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv Line: 111
