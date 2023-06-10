@@ -1,0 +1,90 @@
+# Reading pref.tcl
+# do simplified_sha256_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/yrmho/Documents/SP23/ECE\ 111/ECE_111_Bitcoin_Miner/simplified_sha256 {C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:52:34 on Jun 09,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256" C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(251): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(261): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# End time: 18:52:34 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./simplified_sha256_run_msim_rtl_verilog.do line 8
+# C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -sv -work work +incdir+C:/Users/yrmho/Documents/SP23/ECE\ 111/ECE_111_Bitcoin_Miner/simplified_sha256 {C:/Users/yrmho/Documents/SP23/ECE 111/ECE_..."
+vlog -reportprogress 300 -work work {C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:53:12 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(251): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(261): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# End time: 18:53:12 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:53:12 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv 
+# -- Compiling module tb_simplified_sha256
+# 
+# Top level modules:
+# 	tb_simplified_sha256
+# End time: 18:53:12 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_simplified_sha256
+# vsim work.tb_simplified_sha256 
+# Start time: 18:53:42 on Jun 09,2023
+# Loading sv_std.std
+# Loading work.tb_simplified_sha256
+# ** Error: (vsim-3033) Instantiation of 'simplified_sha256' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_simplified_sha256 File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv Line: 29
+#         Searched libraries:
+#             C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simulation/modelsim/rtl_work
+# Error loading design
+vsim work.tb_simplified_sha256
+# End time: 18:53:43 on Jun 09,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# vsim work.tb_simplified_sha256 
+# Start time: 18:53:43 on Jun 09,2023
+# Loading sv_std.std
+# Loading work.tb_simplified_sha256
+# ** Error: (vsim-3033) Instantiation of 'simplified_sha256' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_simplified_sha256 File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv Line: 29
+#         Searched libraries:
+#             C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simulation/modelsim/rtl_work
+# Error loading design
+# End time: 18:53:44 on Jun 09,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:54:55 on Jun 09,2023
+# vlog -reportprogress 300 -work work C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv 
+# -- Compiling module simplified_sha256
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(251): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# ** Error (suppressible): C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(261): (vlog-12003) Variable 'tstep' written by continuous and procedural assignments. See C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv(47). 
+# End time: 18:54:55 on Jun 09,2023, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vsim work.tb_simplified_sha256
+# vsim work.tb_simplified_sha256 
+# Start time: 18:55:29 on Jun 09,2023
+# Loading sv_std.std
+# Loading work.tb_simplified_sha256
+# ** Error: (vsim-3033) Instantiation of 'simplified_sha256' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_simplified_sha256 File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv Line: 29
+#         Searched libraries:
+#             C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simulation/modelsim/rtl_work
+# Error loading design
+# End time: 18:55:30 on Jun 09,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0

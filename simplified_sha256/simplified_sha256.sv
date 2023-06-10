@@ -19,7 +19,7 @@ logic [31:0] message[20];
 logic [31:0] wt;
 logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;
 logic [31:0] a, b, c, d, e, f, g, h;
-logic [ 7:0] i, j;
+logic [ 7:0] i, j, y;
 logic [15:0] offset; // in word address
 logic [15:0] num_blocks;
 logic        cur_we;
@@ -27,7 +27,7 @@ logic [15:0] cur_addr;
 logic [31:0] cur_write_data;
 logic [512:0] memory_block;
 logic [ 7:0] tstep;
-
+logic [31:0] x0, x1;
 
 
 // SHA256 K constants
@@ -254,9 +254,9 @@ begin
 				w[tstep] <= message[tstep];
 			end
 			else begin
-				s0 = rightrotate(w[tstep-15], 7) ^ rightrotate(w[tstep-15], 18) ^ (w[tstep-15] >> 3);
-				s1 = rightrotate(w[tstep-2], 16) ^ rightrotate(w[tstep-2], 19) ^ (w[tstep-2] >> 10);
-				w[tstep] = w[tstep-16] + s0 + w[tstep-7] + s1;
+				x0 <= rightrotate(w[tstep-15], 7) ^ rightrotate(w[tstep-15], 18) ^ (w[tstep-15] >> 3);
+				x1 <= rightrotate(w[tstep-2], 16) ^ rightrotate(w[tstep-2], 19) ^ (w[tstep-2] >> 10);
+				w[tstep] <= w[tstep-16] + x0 + w[tstep-7] + x1;
 			end
 			tstep <= tstep + 1;
 		end
@@ -356,6 +356,8 @@ begin
   end
 endcase
 // Generate done when SHA256 hash computation has finished and moved to IDLE state
-assign done = (state == IDLE);
+//assign done = (state == IDLE);
+done <= 1'b1;
+state <= IDLE;
 end
 endmodule
