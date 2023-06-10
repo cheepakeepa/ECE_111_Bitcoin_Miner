@@ -51,6 +51,12 @@ assign tstep = (i - 1);
 function logic [15:0] determine_num_blocks(input logic [31:0] size);
 
   // Student to add function implementation
+  if ((size) % 512 == 0) begin
+    determine_num_blocks = (size) / 512;
+  end
+  else begin
+    determine_num_blocks = ((size) / 512) + 1;
+  end
 
 endfunction
 
@@ -110,12 +116,41 @@ begin
     // Initialize hash values h0 to h7 and a to h, other variables and memory we, address offset, etc
     IDLE: begin 
        if(start) begin
-       // Student to add rest of the code  
+       // Student to add rest of the code
+            //initializing hash values (final project SHA-256 slide 21)
+            h0 <= 32'6a09e667;
+            h1 <= 32'bb67ae85;
+            h2 <= 32'3c6ef372;
+            h3 <= 32'a54ff53a;
+            h4 <= 32'510e527f;
+            h5 <= 32'9b05688c;
+            h6 <= 32'1f83d9ab;
+            h7 <= 32'5be0cd19;
 
+            //initializing a to h
+            {a, b, c, d, e, f, g, h} <= {H0, H1, H2, H3, H4, H5, H6, H7};
 
+            //initialize write enable to memory, memory address offset,
+            //curr_addr to first message location in memory, index variables, etc
 
+            mem_we <= 1; //write enable to memory
 
+            cur_addr <= message_addr; //does message_addr need to be initialized to anything?
+
+            //index variables
+            i <= 0;
+            j <= 0;
+
+            offset <= 15'b0;
+
+            //Move to read input message state
+            state <= READ; //maybe need next_state variable instead
        end
+
+         else begin
+            mem_we <= 0;
+            state <= IDLE;
+         end
     end
 
     // SHA-256 FSM 
@@ -125,14 +160,63 @@ begin
 	// Fetch message in 512-bit block size
 	// For each of 512-bit block initiate hash value computation
       
-					if (j < num_blocks) begin
-						if( i < 16) begin
-							w[i] <= message[i]
-							i <= i + 1;
-							
+					
+					if (i < 16) begin
+					
+						case (i) 
 						
+						1: begin
+						w[tstep] <= memory_block[31:0]
+						
+						2: begin
+						w[tstep] <= memory_block[63:32]
+						
+						3: begin
+						w[tstep] <= memory_block[95:64]
+						
+						4: begin
+						w[tstep] <= memory_block[127:96]
+						
+						5: begin
+						w[tstep] <= memory_block[159:128]
+						
+						6: begin
+						w[tstep] <= memory_block[191:160]
+						
+						7: begin
+						w[tstep] <= memory_block[223:192]
+						
+						8: begin
+						w[tstep] <= memory_block[255:224]
+						
+						9: begin
+						w[tstep] <= memory_block[287:256]
+						
+						10: begin
+						w[tstep] <= memory_block[319:288]
+						
+						11: begin
+						w[tstep] <= memory_block[351:320]
+						
+						12: begin
+						w[tstep] <= memory_block[373:352]
+						
+						13: begin
+						w[tstep] <= memory_block[415:384]
+						
+						14: begin
+						w[tstep] <= memory_block[447:416]
+						
+						15: begin
+						w[tstep] <= memory_block[479:448]
+						
+						16: begin
+						w[tstep] <= memory_block[512:480]
 
-
+				end
+				endcase
+				i <= i + 8'd1;
+				state <= compute;
    
 
 
@@ -151,12 +235,9 @@ begin
         if (i <= 64) begin
 
 					{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[i], i);;
+					w(tstep)
 					i <= i + 1;
-					state <= COMPUTE;
-				end
-				
-				else begin
-				
+			
 				h0 <= h0 + a;
 				h1 <= h1 + b;
 				h2 <= h2 + c;
@@ -176,8 +257,6 @@ begin
 				h <= h + h7;
 				
 				i <= 0;
-				state <= BLOCK;
-				
 
 
 
@@ -189,34 +268,60 @@ begin
     // write back these h0 to h7 to memory starting from output_addr
     WRITE: begin
 			
-			mem_addr <= output_addr;
-			mem_write_data <= h0
-			
-			mem_addr <= output_addr + 1;
-			mem_write_data <= h1;
-			
-			mem_addr <= output_addr + 2;
-			mem_write_data <= h2;
-			
-			mem_addr <= output_addr + 3;
-			mem_write_data <= h3;
-			
-			mem_addr <= output_addr + 4;
-			mem_write_data <= h4;
-			
-			mem_addr <= output_addr + 5;
-			mem_write_data <= h5;
-			
-			mem_addr <= output_addr + 6;
-			mem_write_data <= h6;
-			
-			mem_addr <= output_addr + 7;
-			mem_write_data <= h7;
 			
 			
-		
-	
-
+			case (offset) 
+			
+			0: begin
+			
+			offset <= offset + 1;
+			cur_write_data <= h0;
+			state <= write;
+			
+			1: begin
+				
+			offset <= offset + 1;
+			cur_write_data <= h1;
+			state <= write;
+			
+			2: begin
+			
+			offset <= offset + 1;
+			cur_write_data <= h2;
+			state <= write;
+			
+			3: begin
+			
+			offset <= offset + 1;
+			cur_write_data <= h3;
+			state <= write;
+			
+			4: begin 
+			
+			offset <= offset + 1;
+			cur_write_data <= h4;
+			state <= write;
+			
+			5: begin
+			offset <= offset + 1;
+			cur_write_data <= h5;
+			state <= write;
+			
+			6: begin
+			offset <= offset + 1;
+			cur_write_data <= h6;
+			state <= write;
+			
+			7: begin
+			offset <= offset + 1;
+			cur_write_data <= h7;
+			state <= idle;
+			
+			default: begin
+			
+			offset <= offset
+			state <= write;
+				
     end
    endcase
   end
