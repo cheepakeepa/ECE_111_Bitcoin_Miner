@@ -11,24 +11,24 @@ cModel Technology
 Z0 dC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simulation/modelsim
 vsimplified_sha256
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1686374247
+Z2 !s110 1686379250
 !i10b 1
-!s100 d@?ng]5aM>ODH59@YDC`T2
+!s100 h?LT^jKFCReg_KQYk69H10
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IE[56Jg1PZ0<nJO2T:zR3o3
+I@H[1`T4MLU;i9[a^N5^JF2
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1686374241
+w1686379244
 8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv
 FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv
-!i122 27
-L0 1 337
+!i122 35
+L0 1 360
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1686374247.000000
+Z6 !s108 1686379250.000000
 !s107 C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv|
 !s90 -reportprogress|300|-work|work|C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/simplified_sha256.sv|
 !i113 1
@@ -38,17 +38,17 @@ vtb_simplified_sha256
 R1
 R2
 !i10b 1
-!s100 >bA>PhazaCDldAR=TDHF]3
+!s100 P;YVeb@njPF2:4dKUMfe40
 R3
-I3_Ub@Dz__P`PkJA<77P_e3
+IK:n70joWIQMfPOil_99a42
 R4
 S1
 R0
-w1685742863
+w1686374287
 8C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
 FC:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/simplified_sha256/tb_simplified_sha256.sv
-!i122 28
-L0 1 283
+!i122 36
+L0 1 285
 R5
 r1
 !s85 0

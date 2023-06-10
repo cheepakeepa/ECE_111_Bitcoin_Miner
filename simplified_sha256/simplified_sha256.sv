@@ -19,7 +19,7 @@ logic [31:0] message [31:0];
 logic [31:0] wt;
 logic [31:0] h0, h1, h2, h3, h4, h5, h6, h7;
 logic [31:0] a, b, c, d, e, f, g, h;
-logic [ 7:0] i, j, y;
+logic [ 7:0] i, j, y, m;
 logic [15:0] offset; // in word address
 logic [15:0] num_blocks;
 logic        cur_we;
@@ -165,6 +165,7 @@ begin
 			message[0] = mem_read_data;
 			offset <= offset + 1;
 			y<= y+1;
+
 		end
 		else if(y-1 < NUM_OF_WORDS) begin
 			message[y-1] = mem_read_data;
@@ -191,13 +192,43 @@ begin
 			if	(cur_block < 1) begin
 				state <= COMPUTE;
 				i <=1;
+				m<=0;
+				for (int t = 0; t < 64; t++) begin
+					if (t < 16) begin
+						w[t] = message[t];
+					end else begin
+						x0 = rightrotate(w[t-15], 7) ^ rightrotate(w[t-15], 18) ^ (w[t-15] >> 3);
+						x1 = rightrotate(w[t-2], 17) ^ rightrotate(w[t-2], 19) ^ (w[t-2] >> 10);
+						w[t] = w[t-16] + x0 + w[t-7] + x1;
+					end
+				end
 			end
 			else if(cur_block < num_blocks)begin
 				i<=1;
+				m<=0;
 				state <= COMPUTE;
+				for (int t = 0; t < 64; t++) begin
+					if (t < 16) begin
+						w[t] = message[t+16];
+					end else begin
+						x0 = rightrotate(w[t-15], 7) ^ rightrotate(w[t-15], 18) ^ (w[t-15] >> 3);
+						x1 = rightrotate(w[t-2], 17) ^ rightrotate(w[t-2], 19) ^ (w[t-2] >> 10);
+						w[t] = w[t-16] + x0 + w[t-7] + x1;
+					end
+				end
+				
+				a <= h0 ;
+				b <= h1 ;
+				c <= h2 ;
+				d <= h3 ;
+				e <= h4 ;
+				f <= h5 ;
+				g <= h6 ;
+				h <= h7 ;
 			end
 			else begin
 				offset <= 16'd0;
+				
 				write_case_var <= 5'd0;
 				state <= WRITE;
 			end
@@ -209,30 +240,13 @@ begin
     // move to WRITE stage
     COMPUTE: begin
 	// 64 processing rounds steps for 512-bit block 
-	
-	//64 steps, tstep starts at 0
-		//word expansion for wt
-		//for(int c = 0; c < 16; c++)begin
-		//	w[c+cur_block*16] <= message[c+cur_block*16];
-		//end
-		if(tstep <= 63) begin
-			if(tstep<16)begin
-				w[tstep] <= message[tstep+cur_block*16];
+			if (tstep < 64) begin
+
+				{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[tstep], tstep);
+					//w(tstep);
+				i <= i + 1;
 			end
 			else begin
-				x0 <= rightrotate(w[tstep-15], 7) ^ rightrotate(w[tstep-15], 18) ^ (w[tstep-15] >> 3);
-				x1 <= rightrotate(w[tstep-2], 16) ^ rightrotate(w[tstep-2], 19) ^ (w[tstep-2] >> 10);
-				w[tstep] <= w[tstep-16] + x0 + w[tstep-7] + x1;
-			end
-			i <= i + 1;
-		end
-		
-      else if (i <= 64) begin
-
-					{a, b, c, d, e, f, g, h} <= sha256_op(a, b, c, d, e, f, g, h, w[i], i);
-					//w(tstep);
-					i <= i + 1;
-			
 				h0 <= h0 + a;
 				h1 <= h1 + b;
 				h2 <= h2 + c;
@@ -241,23 +255,13 @@ begin
 				h5 <= h5 + f;
 				h6 <= h6 + g;
 				h7 <= h7 + h;
-				
-				/*a <= a + h0;
-				b<= b + h1;
-				c <= c + h2;
-				d <= d + h3;
-				e <= e + h4;
-				f <= f + h5;
-				g <= g + h6;
-				h <= h + h7;
-				*/
-			end
-			else begin
 				i <= 0;
+				m <= 0;
 				offset <= 16'd0;
 				state <= BLOCK;
 				cur_block <= cur_block + 2'd1;
 			end
+			
     end
 
     // h0 to h7 each are 32 bit hashes, which makes up total 256 bit value
