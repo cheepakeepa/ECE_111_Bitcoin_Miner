@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at bitcoin_hash.sv(66): always construct contains both blocking and non-blocking assignments File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 66
-Info (10281): Verilog HDL Declaration information at bitcoin_hash.sv(3): object "done" differs only in case from object "DONE" in the same scope File: C:/Users/jacob/Documents/GitHub/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 3
+Warning (10268): Verilog HDL information at simplified_sha256.sv(111): always construct contains both blocking and non-blocking assignments File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/simplified_sha256.sv Line: 111
+Warning (10268): Verilog HDL information at bitcoin_hash.sv(74): always construct contains both blocking and non-blocking assignments File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/bitcoin_hash/bitcoin_hash.sv Line: 74

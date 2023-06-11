@@ -26,7 +26,7 @@ parameter int k[64] = '{
 
 logic [31:0] H_B1 [7:0]; //hash of block 1
 logic [31:0] H_B2 [num_nonces/2:0][7:0]; //hash of block 2
-logic [31:0] sha_output [num_nonces/2-1:0];//input for the sha_instance
+logic [31:0] sha_output [num_nonces-1:0];//input for the sha_instance
 int loop2;
 int row;
 int column;
@@ -184,7 +184,13 @@ always_ff@(posedge clk or negedge reset_n)begin
 				load_counter<=load_counter +1;
 			end
 			else if(sha_mem_addr[j]-sha_buffer == 19) begin //load nonce into sha
-				sha_read_data[j]<= j+8*loop2;//add 8 if we are on loop 2
+				if(loop2) begin
+					sha_read_data[j] <= j+8;
+				end
+				else begin
+					sha_read_data[j] <= j;
+				end
+				//sha_read_data[j]<= j+8*loop2;//add 8 if we are on loop 2
 				load_counter <=load_counter +1;
 			end
 			//load 12 padding words into sha
@@ -221,7 +227,14 @@ always_ff@(posedge clk or negedge reset_n)begin
 			sha_message_addr[j] <= 0;
 
 			if(sha_mem_we[j] && sha_mem_addr[j] == output_addr)begin//save to output array
-				sha_output[j+8*loop2] <= sha_write_data[j];
+				//sha_output[j+8*loop2] <= sha_write_data[j]; //original
+				//lol
+				if(loop2) begin
+					sha_output[j+8] <= sha_write_data[j];
+				end
+				else begin
+					sha_output[j] <= sha_write_data[j];
+				end
 				//mem_addr <= output_addr +j+loop2*8;
 				//mem_write_data <= sha_write_data[j];
 			end
@@ -269,7 +282,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		done <= 1'b0;
 		mem_we <= 1'b1;
 		mem_addr <= output_addr+row;
-		mem_write_data <= sha_output[row];
+		mem_write_data = sha_output[row];
 		sha_H_in <= SHA_256_constants;
 		load_counter <= 0;	
 		if(row == 16)begin
@@ -278,6 +291,7 @@ always_ff@(posedge clk or negedge reset_n)begin
 		end
 		else begin
 			row <= row+1;
+			state <= OUTPUT;
 		end
 		
 
