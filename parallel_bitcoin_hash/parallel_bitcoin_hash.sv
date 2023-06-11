@@ -54,6 +54,7 @@ logic sha_start, sha_reset_n;
 logic [num_nonces/2-1:0] sha_done;
 logic sha_mem_we[num_nonces/2-1:0];
 logic [7:0] sha_buffer;
+//will generate 8 instances of sha256
 genvar i;
 generate for(i = 0; i<num_nonces/2;i++) begin:sha_gen_loop
 	simplified_sha256 sha_inst(
@@ -190,7 +191,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 				else begin
 					sha_read_data[j] <= j;
 				end
-				//sha_read_data[j]<= j+8*loop2;//add 8 if we are on loop 2
 				load_counter <=load_counter +1;
 			end
 			//load 12 padding words into sha
@@ -227,8 +227,6 @@ always_ff@(posedge clk or negedge reset_n)begin
 			sha_message_addr[j] <= 0;
 
 			if(sha_mem_we[j] && sha_mem_addr[j] == output_addr)begin//save to output array
-				//sha_output[j+8*loop2] <= sha_write_data[j]; //original
-				//lol
 				if(loop2) begin
 					sha_output[j+8] <= sha_write_data[j];
 				end
