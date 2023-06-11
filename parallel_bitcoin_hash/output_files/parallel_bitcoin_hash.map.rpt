@@ -1,5 +1,5 @@
 Analysis & Synthesis report for parallel_bitcoin_hash
-Sat Jun 10 19:55:17 2023
+Sat Jun 10 20:52:51 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -80,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +-----------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status       ; Successful - Sat Jun 10 19:55:14 2023       ;
+; Analysis & Synthesis Status       ; Successful - Sat Jun 10 20:52:49 2023       ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; parallel_bitcoin_hash                       ;
 ; Top-level Entity Name             ; parallel_bitcoin_hash                       ;
@@ -206,8 +206,8 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.3%      ;
-;     Processor 3            ;   0.3%      ;
-;     Processor 4            ;   0.3%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -1422,7 +1422,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:53     ;
+; Top            ; 00:01:05     ;
 +----------------+--------------+
 
 
@@ -1432,7 +1432,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Jun 10 19:52:56 2023
+    Info: Processing started: Sat Jun 10 20:51:27 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off parallel_bitcoin_hash -c parallel_bitcoin_hash
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1445,9 +1445,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file paralle
 Warning (10222): Verilog HDL Parameter Declaration warning at simplified_sha256.sv(35): Parameter Declaration in module "simplified_sha256" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/simplified_sha256.sv Line: 35
 Info (12127): Elaborating entity "parallel_bitcoin_hash" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at parallel_bitcoin_hash.sv(32): object "column" assigned a value but never read File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 32
-Warning (10230): Verilog HDL assignment warning at parallel_bitcoin_hash.sv(284): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 284
+Warning (10230): Verilog HDL assignment warning at parallel_bitcoin_hash.sv(282): truncated value with size 32 to match size of target (16) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 282
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "H_B2" into its bus
-Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_gen_loop[0].sha_inst" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 73
+Info (12128): Elaborating entity "simplified_sha256" for hierarchy "simplified_sha256:sha_gen_loop[0].sha_inst" File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 74
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 59 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/output_files/parallel_bitcoin_hash.map.smsg
@@ -1458,10 +1458,10 @@ Info (21057): Implemented 84249 device resources after synthesis - the final res
     Info (21059): Implemented 51 output pins
     Info (21061): Implemented 84131 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 5258 megabytes
-    Info: Processing ended: Sat Jun 10 19:55:17 2023
-    Info: Elapsed time: 00:02:21
-    Info: Total CPU time (on all processors): 00:01:00
+    Info: Peak virtual memory: 5311 megabytes
+    Info: Processing ended: Sat Jun 10 20:52:51 2023
+    Info: Elapsed time: 00:01:24
+    Info: Total CPU time (on all processors): 00:00:42
 
 
 +------------------------------------------+

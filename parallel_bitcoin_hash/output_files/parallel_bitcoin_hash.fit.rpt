@@ -1,5 +1,5 @@
 Fitter report for parallel_bitcoin_hash
-Sat Jun 10 19:57:43 2023
+Sat Jun 10 20:54:07 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +-----------------------------------+---------------------------------------------+
-; Fitter Status                     ; Failed - Sat Jun 10 19:57:41 2023           ;
+; Fitter Status                     ; Failed - Sat Jun 10 20:54:07 2023           ;
 ; Quartus Prime Version             ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                     ; parallel_bitcoin_hash                       ;
 ; Top-level Entity Name             ; parallel_bitcoin_hash                       ;
@@ -156,14 +156,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.04        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.1%      ;
-;     Processor 3            ;   1.0%      ;
-;     Processor 4            ;   1.0%      ;
+;     Processor 2            ;   1.6%      ;
+;     Processor 3            ;   1.5%      ;
+;     Processor 4            ;   1.4%      ;
 +----------------------------+-------------+
 
 
@@ -2070,16 +2070,16 @@ Info (176353): Automatically promoted node clk~input (placed in PIN AE15 (CLK6, 
 Info (176353): Automatically promoted node reset_n~input (placed in PIN AF15 (CLK4, DIFFCLK_0n)) File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 1
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G6
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node sha_H_in[5][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[3][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[2][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[7][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[5][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[1][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[7][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[6][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[3][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
-        Info (176357): Destination node sha_H_in[2][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 99
+        Info (176357): Destination node sha_H_in[5][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[3][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[2][0] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[7][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[5][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[1][1] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[7][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[6][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[3][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
+        Info (176357): Destination node sha_H_in[2][2] File: C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/parallel_bitcoin_hash.sv Line: 100
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -2099,19 +2099,19 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 7A does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  68 pins available
         Info (176213): I/O bank number 8A does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  52 pins available
         Info (176213): I/O bank number 8C does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  0 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:47
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:22
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Error (170011): Design contains 59672 blocks of type combinational node.  However, the device contains only 36100 blocks.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:06
-Info (11888): Total time spent on timing analysis during the Fitter is 1.34 seconds.
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:05
+Info (11888): Total time spent on timing analysis during the Fitter is 1.03 seconds.
 Error (171000): Can't fit design in device
 Info (144001): Generated suppressed messages file C:/Users/yrmho/Documents/SP23/ECE 111/ECE_111_Bitcoin_Miner/parallel_bitcoin_hash/output_files/parallel_bitcoin_hash.fit.smsg
 Error: Quartus Prime Fitter was unsuccessful. 2 errors, 5 warnings
-    Error: Peak virtual memory: 5967 megabytes
-    Error: Processing ended: Sat Jun 10 19:57:44 2023
-    Error: Elapsed time: 00:02:26
-    Error: Total CPU time (on all processors): 00:00:54
+    Error: Peak virtual memory: 5968 megabytes
+    Error: Processing ended: Sat Jun 10 20:54:08 2023
+    Error: Elapsed time: 00:01:16
+    Error: Total CPU time (on all processors): 00:00:39
 
 
 +----------------------------+
